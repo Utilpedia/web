@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { navLinks } from "@/config/navigation";
+import { Logo } from "@/components/brand";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -58,8 +59,9 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         aria-modal="true"
         aria-label="Mobile navigation"
       >
-        {/* Close button */}
-        <div className="flex justify-end p-4">
+        {/* Header with logo and close button */}
+        <div className="flex items-center justify-between p-4">
+          <Logo size={28} color="var(--foreground)" />
           <button
             onClick={onClose}
             className="p-2 focus-ring rounded"

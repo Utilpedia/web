@@ -12,10 +12,15 @@ describe("translations", () => {
       expect(isToolTranslated("en", "any-tool")).toBe(true);
     });
 
-    it("returns false for non-English locales by default", () => {
-      // Since translatedTools arrays are empty by default
-      expect(isToolTranslated("es", "dice-roller")).toBe(false);
-      expect(isToolTranslated("ja", "dice-roller")).toBe(false);
+    it("returns true for translated tools in non-English locales", () => {
+      // dice-roller is marked as translated in es and ja
+      expect(isToolTranslated("es", "dice-roller")).toBe(true);
+      expect(isToolTranslated("ja", "dice-roller")).toBe(true);
+    });
+
+    it("returns false for untranslated tools in non-English locales", () => {
+      expect(isToolTranslated("es", "unknown-tool")).toBe(false);
+      expect(isToolTranslated("ja", "unknown-tool")).toBe(false);
     });
 
     it("returns false for unknown locales", () => {
@@ -25,8 +30,15 @@ describe("translations", () => {
 
   describe("getTranslatedLocales", () => {
     it("always includes English", () => {
+      const locales = getTranslatedLocales("unknown-tool");
+      expect(locales).toContain("en");
+    });
+
+    it("includes locales where the tool is translated", () => {
       const locales = getTranslatedLocales("dice-roller");
       expect(locales).toContain("en");
+      expect(locales).toContain("es");
+      expect(locales).toContain("ja");
     });
 
     it("returns only English when no other translations exist", () => {
