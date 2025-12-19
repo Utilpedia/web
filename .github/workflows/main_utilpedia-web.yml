@@ -32,7 +32,7 @@ jobs:
       - name: Build application
         run: bun run build
         env:
-          SITE_URL: utilpedia.org
+          SITE_URL: https://utilpedia.org
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
