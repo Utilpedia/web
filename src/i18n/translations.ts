@@ -1,26 +1,19 @@
 /**
  * Translation manifest - tracks which tools have complete translations.
  *
- * When you add a translation for a tool, add the tool slug to the
- * corresponding locale array. This controls:
- * - Whether the "translation in progress" notice is shown
- * - Which pages get hreflang tags for that locale
+ * When you finish translating a tool, add its slug to the locale array.
+ * This controls whether the "translation in progress" notice is shown.
  *
+ * Note: hreflang SEO is NOT affected—all locales get hreflang for all tools.
  * English is always considered complete.
  */
 
 export const translatedTools: Record<string, string[]> = {
   // Spanish translations
-  es: [
-    // Add tool slugs here as they're fully translated:
-    // "dice-roller",
-  ],
+  es: ["dice-roller"],
 
   // Japanese translations
-  ja: [
-    // Add tool slugs here as they're fully translated:
-    // "dice-roller",
-  ],
+  ja: ["dice-roller"],
 };
 
 /**

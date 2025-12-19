@@ -3,6 +3,7 @@
 import { useLocale } from "next-intl";
 import { locales, type Locale } from "@/i18n/config";
 import { useLocaleSwitcher } from "@/lib/locale";
+import packageJson from "../../../package.json";
 
 const localeNames: Record<Locale, string> = {
   en: "English",
@@ -22,28 +23,16 @@ export function TopBar() {
         borderBottom: "1px solid var(--border-muted)",
       }}
     >
-      <div className="content-container flex items-center justify-end py-1.5 gap-4">
+      <div className="content-container flex items-center justify-between py-1.5 gap-4">
+        {/* Version */}
+        <span style={{ color: "var(--foreground-subtle)" }}>
+          v{packageJson.version}
+        </span>
         {/* Language Selector */}
         <div className="flex items-center gap-2">
           <label htmlFor="language-select" className="sr-only">
             Language
           </label>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ color: "var(--foreground-muted)" }}
-            aria-hidden="true"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
           <select
             id="language-select"
             value={currentLocale}
