@@ -1,0 +1,28 @@
+{
+  "common": {
+    "title": "Utilpedia",
+    "tagline": "Free online tools for everyone",
+    "home": "Home",
+    "tools": "Tools",
+    "allTools": "All Tools",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "tryAgain": "Try again"
+  },
+  "tools": {
+    "dice-roller": {
+      "name": "Dice Roller",
+      "description": "Roll virtual dice for tabletop games and RPGs"
+    }
+  },
+  "diceTool": {
+    "sides": "Sides",
+    "count": "Number of dice",
+    "roll": "Roll",
+    "total": "Total",
+    "rolls": "Rolls",
+    "mode": "Mode",
+    "modeTotal": "Show total",
+    "modeRolls": "Show individual rolls"
+  }
+}

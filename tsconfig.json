@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@utilpedia/math/*": [
+        "./node_modules/@utilpedia/stdlib/packages/math/dist/*"
+      ]
     }
   },
   "include": [
