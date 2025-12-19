@@ -12,6 +12,7 @@ export const tools: Tool[] = [
     description: "Roll virtual dice for tabletop games and RPGs",
     category: "math",
     component: DiceTool,
+    componentPath: "dice",
     keywords: ["dice", "roll", "random", "d20", "tabletop", "rpg"],
   },
   {
