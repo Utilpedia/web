@@ -5,9 +5,11 @@ import {
 } from "@/features/tool-registry/registry";
 import { PlaceholderTool } from "@/components/tools/PlaceholderTool";
 import { TranslationNotice } from "@/components/TranslationNotice";
+import { ToolDocs } from "@/components/tools/ToolDocs";
 import { locales } from "@/i18n/config";
 import { generateAlternates } from "@/lib/seo";
 import { getTranslatedTool } from "@/lib/tool-i18n";
+import { getToolDocs } from "@/lib/tool-docs";
 import type { Metadata } from "next";
 
 interface Props {
@@ -65,6 +67,7 @@ export default async function ToolPage({ params }: Props) {
   }
 
   const { name, description } = await getTranslatedTool(tool, locale);
+  const docs = await getToolDocs(slug, locale);
 
   // Use placeholder if no component is implemented yet
   if (!tool.component) {
@@ -81,6 +84,7 @@ export default async function ToolPage({ params }: Props) {
     <>
       <TranslationNotice toolSlug={slug} />
       <ToolComponent />
+      {docs && <ToolDocs html={docs.html} isFallback={docs.isFallback} />}
     </>
   );
 }

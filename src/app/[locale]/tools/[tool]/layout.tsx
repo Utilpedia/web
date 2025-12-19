@@ -12,12 +12,7 @@ export default function ToolLayout({
         <Sidebar />
       </div>
 
-      <main
-        className="flex-1 p-4 md:p-8"
-        style={{ border: "1px solid var(--border)" }}
-      >
-        {children}
-      </main>
+      <main className="flex-1 p-4 md:p-8">{children}</main>
     </div>
   );
 }

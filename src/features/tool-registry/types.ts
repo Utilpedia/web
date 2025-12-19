@@ -27,6 +27,9 @@ export interface Tool {
   /** The React component for this tool (undefined = placeholder) */
   component?: ComponentType;
 
+  /** Directory name under src/components/tools/ (e.g., "dice" for dice-roller) */
+  componentPath?: string;
+
   /** Optional keywords for SEO and search */
   keywords?: string[];
 }
