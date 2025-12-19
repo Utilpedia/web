@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "node next-sitemap.config.mjs",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -15,14 +15,15 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
-    "precommit": "lint-staged && bun run typecheck"
+    "precommit": "lint-staged && bun run typecheck && bun run test"
   },
   "dependencies": {
     "@utilpedia/stdlib": "github:Utilpedia/stdlib#v0.1.0",
     "next": "16.1.0",
     "next-intl": "^4.6.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "valibot": "^1.2.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -33,6 +34,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.2",
+    "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "husky": "^9",

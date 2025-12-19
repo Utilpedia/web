@@ -1,9 +1,4 @@
-# *
 User-agent: *
 Allow: /
 
-# Host
-Host: https://utilpedia.com
-
-# Sitemaps
-Sitemap: https://utilpedia.com/sitemap.xml
+Sitemap: https://utilpedia.org/sitemap.xml

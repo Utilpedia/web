@@ -1,36 +1,146 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Utilpedia Web Application
+
+A Next.js web application providing free online tools for everyone.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Bun](https://bun.sh/) v1.0 or later
+- Node.js 18+ (for some tooling)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+### Development
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+bun run build
+```
 
-## Learn More
+This will also generate the sitemap via `next-sitemap`.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── [locale]/           # Locale-prefixed routes
+│   │   ├── tools/          # Tools section
+│   │   │   └── [tool]/     # Individual tool pages
+│   └── globals.css         # Global styles & CSS variables
+├── components/
+│   ├── brand/              # Logo, Wordmark SVGs
+│   ├── layout/             # Header, Sidebar, MobileNav
+│   └── tools/              # Tool components (e.g., DiceTool)
+├── config/                 # App configuration (navigation)
+├── features/
+│   └── tool-registry/      # Central tool definitions
+├── i18n/                   # Internationalization config
+├── lib/                    # Utilities (SEO, locale, tool-i18n)
+├── messages/               # Translation files (en.json, es.json, ja.json)
+└── test/                   # Test setup
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a New Tool
 
-## Deploy on Vercel
+1. **Register the tool** in `src/features/tool-registry/registry.ts`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```typescript
+{
+  slug: "my-new-tool",
+  name: "My New Tool",
+  description: "Description of the tool",
+  category: "math", // or "text", "image", "files", "dev"
+  component: MyNewTool, // optional, omit for placeholder
+  keywords: ["keyword1", "keyword2"],
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Create the component** in `src/components/tools/my-new-tool/MyNewTool.tsx`
+
+3. **Add translations** to each message file (`en.json`, `es.json`, `ja.json`):
+
+```json
+"tools": {
+  "my-new-tool": {
+    "name": "My New Tool",
+    "description": "Description of the tool"
+  }
+}
+```
+
+4. **Update tool-slugs.json** for sitemap generation:
+
+```bash
+bun run build  # Regenerates sitemap with new tool
+```
+
+## Adding a New Language
+
+1. **Add locale to config** in `src/i18n/config.ts`:
+
+```typescript
+export const locales = ["en", "es", "ja", "fr"] as const;
+```
+
+2. **Create message file** at `src/messages/fr.json` (copy from `en.json`)
+
+3. **Update sitemap config** in `next-sitemap.config.mjs`:
+
+```javascript
+const locales = ["en", "es", "ja", "fr"];
+```
+
+4. **Add to language picker** in `src/components/layout/TopBar.tsx`:
+
+```typescript
+const localeNames: Record<Locale, string> = {
+  en: "English",
+  es: "Español",
+  ja: "日本語",
+  fr: "Français",
+};
+```
+
+## Environment Variables
+
+| Variable   | Description                          | Default                 |
+| ---------- | ------------------------------------ | ----------------------- |
+| `SITE_URL` | Base URL for canonical/hreflang tags | `https://utilpedia.org` |
+
+## Scripts
+
+| Command              | Description                |
+| -------------------- | -------------------------- |
+| `bun dev`            | Start development server   |
+| `bun run build`      | Production build + sitemap |
+| `bun run lint`       | Run ESLint                 |
+| `bun run format`     | Format with Prettier       |
+| `bun run typecheck`  | TypeScript type checking   |
+| `bun run test`       | Run tests with Vitest      |
+| `bun run test:watch` | Run tests in watch mode    |
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS 4
+- **i18n:** next-intl
+- **Validation:** Valibot
+- **Testing:** Vitest + Testing Library
+- **Utilities:** @utilpedia/stdlib
+
+## License
+
+MIT

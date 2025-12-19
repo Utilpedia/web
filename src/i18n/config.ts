@@ -2,7 +2,7 @@
  * Supported locales for the application.
  * Add new locales here as they become available.
  */
-export const locales = ["en"] as const;
+export const locales = ["en", "es", "ja"] as const;
 
 export type Locale = (typeof locales)[number];
 

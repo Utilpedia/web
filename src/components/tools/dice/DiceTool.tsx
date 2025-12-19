@@ -3,115 +3,250 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { dice } from "@utilpedia/math/core";
+import * as v from "valibot";
 
 type Mode = "total" | "rolls";
+
+const MIN_SIDES = 2;
+const MAX_SIDES = 1000;
+const MIN_COUNT = 1;
+const MAX_COUNT = 100;
+
+const sidesSchema = v.pipe(
+  v.string(),
+  v.transform((val) => parseInt(val, 10)),
+  v.number("Must be a number"),
+  v.integer("Must be a whole number"),
+  v.minValue(MIN_SIDES, `Minimum ${MIN_SIDES} sides`),
+  v.maxValue(MAX_SIDES, `Maximum ${MAX_SIDES} sides`)
+);
+
+const countSchema = v.pipe(
+  v.string(),
+  v.transform((val) => parseInt(val, 10)),
+  v.number("Must be a number"),
+  v.integer("Must be a whole number"),
+  v.minValue(MIN_COUNT, `Minimum ${MIN_COUNT} die`),
+  v.maxValue(MAX_COUNT, `Maximum ${MAX_COUNT} dice`)
+);
+
+function validate<T>(
+  schema: v.GenericSchema<string, T>,
+  value: string
+): { success: true; data: T } | { success: false; error: string } {
+  const result = v.safeParse(schema, value);
+  if (result.success) {
+    return { success: true, data: result.output };
+  }
+  return { success: false, error: result.issues[0]?.message ?? "Invalid" };
+}
 
 export function DiceTool() {
   const t = useTranslations("diceTool");
 
-  const [sides, setSides] = useState(6);
-  const [count, setCount] = useState(1);
+  const [sides, setSides] = useState("6");
+  const [count, setCount] = useState("1");
   const [mode, setMode] = useState<Mode>("total");
   const [result, setResult] = useState<number | number[] | null>(null);
+  const [errors, setErrors] = useState<{ sides?: string; count?: string }>({});
+
+  const handleSidesChange = (value: string) => {
+    setSides(value);
+    const result = validate(sidesSchema, value);
+    setErrors((prev) => ({
+      ...prev,
+      sides: result.success ? undefined : result.error,
+    }));
+  };
+
+  const handleCountChange = (value: string) => {
+    setCount(value);
+    const result = validate(countSchema, value);
+    setErrors((prev) => ({
+      ...prev,
+      count: result.success ? undefined : result.error,
+    }));
+  };
 
   const handleRoll = () => {
+    const sidesResult = validate(sidesSchema, sides);
+    const countResult = validate(countSchema, count);
+
+    setErrors({
+      sides: sidesResult.success ? undefined : sidesResult.error,
+      count: countResult.success ? undefined : countResult.error,
+    });
+
+    if (!sidesResult.success || !countResult.success) {
+      setResult(null);
+      return;
+    }
+
     if (mode === "rolls") {
-      setResult(dice(sides, count, "rolls"));
+      setResult(dice(sidesResult.data, countResult.data, "rolls"));
     } else {
-      setResult(dice(sides, count, "total"));
+      setResult(dice(sidesResult.data, countResult.data, "total"));
     }
   };
 
+  const hasErrors = Boolean(errors.sides || errors.count);
+
   return (
-    <div className="max-w-md mx-auto p-6 space-y-6">
-      {/* Sides input */}
+    <div className="space-y-6">
+      <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
+        {t("title")}
+      </h1>
+
+      {/* Number of Sides */}
       <div className="space-y-2">
-        <label htmlFor="sides" className="block text-sm font-medium">
+        <label
+          htmlFor="sides"
+          className="block text-lg font-bold"
+          style={{ color: "var(--foreground)" }}
+        >
           {t("sides")}
         </label>
         <input
           id="sides"
           type="number"
-          min={1}
-          max={100}
+          min={MIN_SIDES}
+          max={MAX_SIDES}
           value={sides}
-          onChange={(e) => setSides(Math.max(1, parseInt(e.target.value) || 1))}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          onChange={(e) => handleSidesChange(e.target.value)}
+          aria-invalid={errors.sides ? "true" : "false"}
+          aria-describedby={
+            errors.sides ? "sides-error sides-hint" : "sides-hint"
+          }
+          className="w-full px-3 py-2 focus-ring"
+          style={{
+            border: `1px solid var(${errors.sides ? "--input-border-error" : "--input-border"})`,
+            backgroundColor: "var(--background)",
+            color: "var(--foreground)",
+          }}
         />
+        {errors.sides && (
+          <p
+            id="sides-error"
+            className="text-sm"
+            style={{ color: "var(--destructive)" }}
+            role="alert"
+          >
+            {errors.sides}
+          </p>
+        )}
+        <p
+          id="sides-hint"
+          className="text-xs"
+          style={{ color: "var(--foreground-subtle)" }}
+        >
+          {t("sidesHint", { min: MIN_SIDES, max: MAX_SIDES })}
+        </p>
       </div>
 
-      {/* Count input */}
+      {/* Number of Dice */}
       <div className="space-y-2">
-        <label htmlFor="count" className="block text-sm font-medium">
+        <label
+          htmlFor="count"
+          className="block text-lg font-bold"
+          style={{ color: "var(--foreground)" }}
+        >
           {t("count")}
         </label>
         <input
           id="count"
           type="number"
-          min={1}
-          max={100}
+          min={MIN_COUNT}
+          max={MAX_COUNT}
           value={count}
-          onChange={(e) => setCount(Math.max(1, parseInt(e.target.value) || 1))}
-          className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          onChange={(e) => handleCountChange(e.target.value)}
+          aria-invalid={errors.count ? "true" : "false"}
+          aria-describedby={
+            errors.count ? "count-error count-hint" : "count-hint"
+          }
+          className="w-full px-3 py-2 focus-ring"
+          style={{
+            border: `1px solid var(${errors.count ? "--input-border-error" : "--input-border"})`,
+            backgroundColor: "var(--background)",
+            color: "var(--foreground)",
+          }}
         />
+        {errors.count && (
+          <p
+            id="count-error"
+            className="text-sm"
+            style={{ color: "var(--destructive)" }}
+            role="alert"
+          >
+            {errors.count}
+          </p>
+        )}
+        <p
+          id="count-hint"
+          className="text-xs"
+          style={{ color: "var(--foreground-subtle)" }}
+        >
+          {t("countHint", { min: MIN_COUNT, max: MAX_COUNT })}
+        </p>
       </div>
 
-      {/* Mode toggle */}
+      {/* Result Display */}
       <div className="space-y-2">
-        <label className="block text-sm font-medium">{t("mode")}</label>
-        <div className="flex gap-4">
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="mode"
-              value="total"
-              checked={mode === "total"}
-              onChange={() => setMode("total")}
-              className="text-blue-500 focus:ring-blue-500"
-            />
-            <span>{t("modeTotal")}</span>
-          </label>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="mode"
-              value="rolls"
-              checked={mode === "rolls"}
-              onChange={() => setMode("rolls")}
-              className="text-blue-500 focus:ring-blue-500"
-            />
-            <span>{t("modeRolls")}</span>
-          </label>
-        </div>
+        <label
+          htmlFor="result"
+          className="block text-lg font-bold"
+          style={{ color: "var(--foreground)" }}
+        >
+          {mode === "rolls" ? t("rolls") : t("total")}
+        </label>
+        <output
+          id="result"
+          aria-live="polite"
+          className="block w-full px-3 py-2"
+          style={{
+            border: "1px solid var(--input-border)",
+            backgroundColor: "var(--background)",
+            color: "var(--foreground)",
+            minHeight: "42px",
+          }}
+        >
+          {result === null
+            ? ""
+            : Array.isArray(result)
+              ? result.join(", ")
+              : result.toString()}
+        </output>
       </div>
 
-      {/* Roll button */}
+      {/* Mode Toggle */}
+      <div className="flex gap-4 text-sm">
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={mode === "rolls"}
+            onChange={(e) => setMode(e.target.checked ? "rolls" : "total")}
+            className="w-4 h-4 focus-ring"
+          />
+          <span style={{ color: "var(--foreground-muted)" }}>
+            {t("modeRolls")}
+          </span>
+        </label>
+      </div>
+
+      {/* Roll Button */}
       <button
         onClick={handleRoll}
-        className="w-full py-3 px-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+        disabled={hasErrors}
+        className="px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring"
+        style={{
+          backgroundColor: hasErrors ? "var(--border)" : "var(--primary)",
+          color: hasErrors
+            ? "var(--foreground-muted)"
+            : "var(--primary-foreground)",
+          cursor: hasErrors ? "not-allowed" : "pointer",
+        }}
       >
-        {t("roll")} {count}d{sides}
+        {t("roll")}
       </button>
-
-      {/* Result display */}
-      {result !== null && (
-        <div className="p-4 bg-gray-100 rounded-md text-center">
-          {Array.isArray(result) ? (
-            <div className="space-y-2">
-              <p className="text-sm font-medium text-gray-600">{t("rolls")}</p>
-              <p className="text-2xl font-bold">{result.join(", ")}</p>
-              <p className="text-sm text-gray-500">
-                {t("total")}: {result.reduce((a, b) => a + b, 0)}
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-2">
-              <p className="text-sm font-medium text-gray-600">{t("total")}</p>
-              <p className="text-4xl font-bold">{result}</p>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

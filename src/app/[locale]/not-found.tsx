@@ -1,12 +1,9 @@
 import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 
-export default async function RootNotFound() {
+export default async function NotFound() {
   const locale = await getLocale();
   const t = await getTranslations({ locale, namespace: "common" });
-
-  // Determine the home link based on locale
-  const homeHref = locale === "en" ? "/" : `/${locale}`;
 
   return (
     <main
@@ -19,7 +16,7 @@ export default async function RootNotFound() {
       </p>
 
       <Link
-        href={homeHref}
+        href="/"
         className="px-6 py-3 font-medium rounded-md transition-colors focus-ring"
         style={{
           backgroundColor: "var(--primary)",
