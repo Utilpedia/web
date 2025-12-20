@@ -39,6 +39,8 @@ jobs:
         with:
           name: node-app
           path: .
+          retention-days: 1
+          compression-level: 9
 
   deploy:
     runs-on: ubuntu-latest
@@ -58,3 +60,4 @@ jobs:
           slot-name: "Production"
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F9AF72D56CB24745B9AB5096B93E9ACF }}
+          startup-command: "npm start"
