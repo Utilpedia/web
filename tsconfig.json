@@ -22,6 +22,12 @@
       "@/*": ["./src/*"],
       "@utilpedia/math/*": [
         "./node_modules/@utilpedia/math/packages/math/dist/*"
+      ],
+      "@utilpedia/color": [
+        "./node_modules/@utilpedia/color/packages/color/dist/index"
+      ],
+      "@utilpedia/color/*": [
+        "./node_modules/@utilpedia/color/packages/color/dist/*"
       ]
     }
   },

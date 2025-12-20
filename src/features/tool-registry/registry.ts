@@ -1,6 +1,7 @@
 import type { Tool } from "./types";
 import { DiceTool } from "@/components/tools/dice/DiceTool";
 import { SimpleInterestTool } from "@/components/tools/simple-interest/SimpleInterestTool";
+import { PantoneConverterTool } from "@/components/tools/pantone-converter/PantoneConverterTool";
 
 /**
  * Central registry of all available tools.
@@ -127,6 +128,15 @@ export const tools: Tool[] = [
     name: "Color Picker",
     description: "Pick and convert colors",
     category: "image",
+  },
+  {
+    slug: "pantone-converter",
+    name: "Pantone Converter",
+    description: "Convert Pantone colors to HEX, RGB, and CMYK",
+    category: "image",
+    component: PantoneConverterTool,
+    componentPath: "pantone-converter",
+    keywords: ["pantone", "pms", "color", "hex", "rgb", "cmyk", "convert"],
   },
   {
     slug: "hex-to-rgb",
