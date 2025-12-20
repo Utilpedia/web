@@ -13,9 +13,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // The stdlib monorepo installs the whole repo, so we alias to the actual package
       "@utilpedia/math": path.resolve(
         __dirname,
-        "./node_modules/@utilpedia/stdlib/packages/math/dist"
+        "./node_modules/@utilpedia/math/packages/math/dist"
       ),
     },
   },

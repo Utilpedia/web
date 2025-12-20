@@ -60,6 +60,10 @@
       "name": "Compound Interest",
       "description": "Calculate compound interest over time"
     },
+    "simple-interest": {
+      "name": "Simple Interest Calculator",
+      "description": "Calculate simple interest on savings or loans"
+    },
     "unit-converter": {
       "name": "Unit Converter",
       "description": "Convert between different units"
@@ -235,5 +239,25 @@
     "modeRolls": "Show individual rolls",
     "sidesHint": "Between {min} and {max}",
     "countHint": "Between {min} and {max}"
+  },
+  "simpleInterestTool": {
+    "title": "Simple Interest Calculator",
+    "principal": "Starting Amount ($)",
+    "rateAnnual": "Interest Rate (APR %)",
+    "rateMonthly": "Interest Rate (%)",
+    "ratePeriodLabel": "Interest rate period",
+    "perYear": "Per Year",
+    "perMonth": "Per Month",
+    "timePeriod": "Time Period",
+    "timeUnitLabel": "Time period unit",
+    "years": "Years",
+    "months": "Months",
+    "calculate": "Calculate",
+    "totalInterest": "Total Interest Earned",
+    "finalBalance": "Final Balance",
+    "growthOverTime": "Balance Growth Over Time",
+    "principalLabel": "Principal",
+    "interestLabel": "Interest",
+    "showMonthlyBreakdown": "Show monthly breakdown"
   }
 }
