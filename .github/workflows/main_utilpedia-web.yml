@@ -34,6 +34,16 @@ jobs:
         env:
           SITE_URL: https://utilpedia.org
 
+      - name: Set up Node.js for npm install
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Reinstall dependencies with npm (for Azure compatibility)
+        run: |
+          rm -rf node_modules
+          npm install --production=false
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
