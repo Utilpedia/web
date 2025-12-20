@@ -5,6 +5,10 @@ import path from "path";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  // Standalone output for Azure/Docker deployment
+  // Creates minimal self-contained build at .next/standalone
+  output: "standalone",
+
   webpack: (config) => {
     // Alias @utilpedia/math/* to the stdlib monorepo subpackage
     config.resolve.alias = {
