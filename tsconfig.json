@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@utilpedia/math/*": [
-        "./node_modules/@utilpedia/stdlib/packages/math/dist/*"
+        "./node_modules/@utilpedia/math/packages/math/dist/*"
       ]
     }
   },

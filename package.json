@@ -18,11 +18,12 @@
     "precommit": "lint-staged && bun run typecheck && bun run test"
   },
   "dependencies": {
-    "@utilpedia/stdlib": "github:Utilpedia/stdlib#v0.1.0",
+    "@utilpedia/math": "github:Utilpedia/stdlib#v0.2.0",
     "next": "16.1.0",
     "next-intl": "^4.6.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "recharts": "^3.6.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",

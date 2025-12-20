@@ -1,5 +1,6 @@
 import type { Tool } from "./types";
 import { DiceTool } from "@/components/tools/dice/DiceTool";
+import { SimpleInterestTool } from "@/components/tools/simple-interest/SimpleInterestTool";
 
 /**
  * Central registry of all available tools.
@@ -56,6 +57,22 @@ export const tools: Tool[] = [
     name: "Compound Interest",
     description: "Calculate compound interest over time",
     category: "math",
+  },
+  {
+    slug: "simple-interest",
+    name: "Simple Interest Calculator",
+    description: "Calculate simple interest on savings or loans",
+    category: "math",
+    component: SimpleInterestTool,
+    componentPath: "simple-interest",
+    keywords: [
+      "interest",
+      "simple",
+      "savings",
+      "loan",
+      "calculator",
+      "finance",
+    ],
   },
   {
     slug: "unit-converter",
