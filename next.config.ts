@@ -10,12 +10,16 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   webpack: (config) => {
-    // The stdlib monorepo installs the whole repo, so we alias to the actual package
+    // The stdlib monorepo installs the whole repo, so we alias to the actual packages
     config.resolve.alias = {
       ...config.resolve.alias,
       "@utilpedia/math": path.resolve(
         __dirname,
         "node_modules/@utilpedia/math/packages/math/dist"
+      ),
+      "@utilpedia/color": path.resolve(
+        __dirname,
+        "node_modules/@utilpedia/color/packages/color/dist"
       ),
     };
     return config;

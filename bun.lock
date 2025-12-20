@@ -5,7 +5,8 @@
     "": {
       "name": "webapp",
       "dependencies": {
-        "@utilpedia/math": "github:Utilpedia/stdlib#v0.2.0",
+        "@utilpedia/color": "github:Utilpedia/stdlib#v0.3.1",
+        "@utilpedia/math": "github:Utilpedia/stdlib#v0.3.1",
         "next": "16.1.0",
         "next-intl": "^4.6.1",
         "react": "19.2.3",
@@ -561,7 +562,9 @@
 
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.11.1", "", { "os": "win32", "cpu": "x64" }, "sha512-lrW200hZdbfRtztbygyaq/6jP6AKE8qQN2KvPcJ+x7wiD038YtnYtZ82IMNJ69GJibV7bwL3y9FgK+5w/pYt6g=="],
 
-    "@utilpedia/math": ["@utilpedia/stdlib@github:Utilpedia/stdlib#bef07df", {}, "Utilpedia-stdlib-bef07df"],
+    "@utilpedia/color": ["@utilpedia/stdlib@github:Utilpedia/stdlib#7d6a57e", {}, "Utilpedia-stdlib-7d6a57e"],
+
+    "@utilpedia/math": ["@utilpedia/stdlib@github:Utilpedia/stdlib#7d6a57e", {}, "Utilpedia-stdlib-7d6a57e"],
 
     "@vitejs/plugin-react": ["@vitejs/plugin-react@5.1.2", "", { "dependencies": { "@babel/core": "^7.28.5", "@babel/plugin-transform-react-jsx-self": "^7.27.1", "@babel/plugin-transform-react-jsx-source": "^7.27.1", "@rolldown/pluginutils": "1.0.0-beta.53", "@types/babel__core": "^7.20.5", "react-refresh": "^0.18.0" }, "peerDependencies": { "vite": "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0" } }, "sha512-EcA07pHJouywpzsoTUqNh5NwGayl2PPVEJKUSinGGSxFGYn+shYbqMGBg6FXDqgXum9Ou/ecb+411ssw8HImJQ=="],
 

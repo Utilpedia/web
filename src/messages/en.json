@@ -100,6 +100,10 @@
       "name": "Color Picker",
       "description": "Pick and convert colors"
     },
+    "pantone-converter": {
+      "name": "Pantone Converter",
+      "description": "Convert Pantone colors to HEX, RGB, and CMYK"
+    },
     "hex-to-rgb": {
       "name": "Hex to RGB",
       "description": "Convert hex colors to RGB"
@@ -259,5 +263,13 @@
     "principalLabel": "Principal",
     "interestLabel": "Interest",
     "showMonthlyBreakdown": "Show monthly breakdown"
+  },
+  "pantoneConverterTool": {
+    "title": "Pantone Converter",
+    "searchLabel": "Search Pantone Colors",
+    "searchPlaceholder": "Enter color name or code (e.g., Black Bean, 19-3909 TCX)",
+    "noResults": "No Pantone colors found. Try a different search term.",
+    "copy": "Copy",
+    "copied": "Copied!"
   }
 }
