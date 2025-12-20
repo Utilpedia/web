@@ -53,66 +53,27 @@ src/
 └── test/                   # Test setup
 ```
 
-## Adding a New Tool
+## Documentation
 
-1. **Register the tool** in `src/features/tool-registry/registry.ts`:
+| Guide                                                | Description                                                  |
+| ---------------------------------------------------- | ------------------------------------------------------------ |
+| [Adding Tools](docs/ADDING_TOOLS.md)                 | How to add new tools, stdlib integration, component patterns |
+| [Internationalization](docs/INTERNATIONALIZATION.md) | Multi-language support, translations, SEO strategy           |
 
-```typescript
-{
-  slug: "my-new-tool",
-  name: "My New Tool",
-  description: "Description of the tool",
-  category: "math", // or "text", "image", "files", "dev"
-  component: MyNewTool, // optional, omit for placeholder
-  keywords: ["keyword1", "keyword2"],
-}
-```
+### Quick Reference
 
-2. **Create the component** in `src/components/tools/my-new-tool/MyNewTool.tsx`
+**Add a tool:**
 
-3. **Add translations** to each message file (`en.json`, `es.json`, `ja.json`):
+1. Register in `src/features/tool-registry/registry.ts`
+2. Add translations to `src/messages/en.json`
+3. Create component in `src/components/tools/`
 
-```json
-"tools": {
-  "my-new-tool": {
-    "name": "My New Tool",
-    "description": "Description of the tool"
-  }
-}
-```
+**Add a language:**
 
-4. **Update tool-slugs.json** for sitemap generation:
-
-```bash
-bun run build  # Regenerates sitemap with new tool
-```
-
-## Adding a New Language
-
-1. **Add locale to config** in `src/i18n/config.ts`:
-
-```typescript
-export const locales = ["en", "es", "ja", "fr"] as const;
-```
-
-2. **Create message file** at `src/messages/fr.json` (copy from `en.json`)
-
-3. **Update sitemap config** in `next-sitemap.config.mjs`:
-
-```javascript
-const locales = ["en", "es", "ja", "fr"];
-```
-
-4. **Add to language picker** in `src/components/layout/TopBar.tsx`:
-
-```typescript
-const localeNames: Record<Locale, string> = {
-  en: "English",
-  es: "Español",
-  ja: "日本語",
-  fr: "Français",
-};
-```
+1. Add locale to `src/i18n/config.ts`
+2. Create `src/messages/{locale}.json`
+3. Add to `next-sitemap.config.mjs` locales array
+4. Add display name to `src/components/layout/TopBar.tsx`
 
 ## Environment Variables
 
