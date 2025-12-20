@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node next-sitemap.config.mjs",
+    "postbuild": "bun scripts/generate-tool-slugs.ts && node next-sitemap.config.mjs",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
