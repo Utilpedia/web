@@ -1,6 +1,6 @@
 /**
  * Generates tool-slugs.json from the registry.
- * Run with: bun scripts/generate-tool-slugs.ts
+ * Run with: tsx scripts/generate-tool-slugs.ts
  *
  * This ensures the JSON file stays in sync with registry.ts,
  * which is the single source of truth for tool definitions.
