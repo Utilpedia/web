@@ -44,6 +44,14 @@ jobs:
           rm -rf node_modules
           npm install --production=false
 
+      - name: Create node_modules.tar.gz for Azure
+        run: |
+          echo "Creating node_modules.tar.gz for Azure deployment..."
+          tar -czf node_modules.tar.gz node_modules
+          echo "node_modules.tar.gz created ($(du -h node_modules.tar.gz | cut -f1))"
+          # Remove node_modules directory - Azure will extract from tar.gz
+          rm -rf node_modules
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
