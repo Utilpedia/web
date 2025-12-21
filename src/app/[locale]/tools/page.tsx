@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { tools } from "@/features/tool-registry/registry";
 import { generateAlternates } from "@/lib/seo";
 import { getTranslatedTools } from "@/lib/tool-i18n";
 import { getTranslations } from "next-intl/server";
+import { ProgressLink } from "@/components/utility";
 import type { Metadata } from "next";
 
 interface Props {
@@ -36,7 +36,7 @@ export default async function ToolsPage({ params }: Props) {
 
       <div className="grid gap-4">
         {translatedTools.map((tool) => (
-          <Link
+          <ProgressLink
             key={tool.slug}
             href={`/tools/${tool.slug}`}
             className="block p-4 transition-colors focus-ring"
@@ -51,7 +51,7 @@ export default async function ToolsPage({ params }: Props) {
             <p style={{ color: "var(--foreground-muted)" }}>
               {tool.translatedDescription}
             </p>
-          </Link>
+          </ProgressLink>
         ))}
       </div>
     </>

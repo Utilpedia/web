@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { generateAlternates } from "@/lib/seo";
 import { getTranslations } from "next-intl/server";
+import { ProgressLink } from "@/components/utility";
 import type { Metadata } from "next";
 
 interface Props {
@@ -40,7 +40,7 @@ export default async function HomePage() {
           {t("subtitle")}
         </p>
 
-        <Link
+        <ProgressLink
           href="/tools"
           className="inline-block px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring"
           style={{
@@ -49,7 +49,7 @@ export default async function HomePage() {
           }}
         >
           {t("browseTools")}
-        </Link>
+        </ProgressLink>
       </main>
     </div>
   );

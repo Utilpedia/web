@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { tools } from "@/features/tool-registry/registry";
 import { defaultLocale } from "@/i18n/config";
+import { ProgressLink } from "@/components/utility";
 
 const MAX_TOOLS = 60;
 
@@ -56,7 +56,7 @@ export function Sidebar() {
 
             return (
               <li key={tool.slug}>
-                <Link
+                <ProgressLink
                   href={getToolHref(tool.slug)}
                   className="block px-2 py-1.5 text-sm rounded focus-ring transition-colors"
                   style={{
@@ -70,20 +70,20 @@ export function Sidebar() {
                   aria-current={isActive ? "page" : undefined}
                 >
                   {getToolName(tool.slug, tool.name)}
-                </Link>
+                </ProgressLink>
               </li>
             );
           })}
         </ul>
 
         {tools.length > MAX_TOOLS && (
-          <Link
+          <ProgressLink
             href={locale === defaultLocale ? "/tools" : `/${locale}/tools`}
             className="block px-2 py-1.5 mt-2 text-sm focus-ring"
             style={{ color: "var(--primary)" }}
           >
             {tCommon("allTools")} →
-          </Link>
+          </ProgressLink>
         )}
       </nav>
     </aside>

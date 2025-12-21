@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Wordmark } from "@/components/brand/Wordmark";
 import { MobileNav } from "./MobileNav";
 import { TopBar } from "./TopBar";
 import { navLinks } from "@/config/navigation";
+import { ProgressLink } from "@/components/utility";
 
 export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -20,14 +20,17 @@ export function Header() {
       <header className="flex items-center border-b h-16 full-bleed">
         <div className="content-container flex items-center justify-between">
           {/* Logo/Wordmark */}
-          <Link href="/" className="flex h-full items-center focus-ring">
+          <ProgressLink
+            href="/"
+            className="flex h-full items-center focus-ring"
+          >
             <Wordmark
               color="var(--foreground)"
               width="auto"
               height={20}
               className=""
             />
-          </Link>
+          </ProgressLink>
 
           {/* Desktop Navigation */}
           <nav
@@ -35,7 +38,7 @@ export function Header() {
             aria-label="Main navigation"
           >
             {navLinks.map((link) => (
-              <Link
+              <ProgressLink
                 key={link.href}
                 href={link.href}
                 className="font-medium focus-ring rounded px-1"
@@ -46,7 +49,7 @@ export function Header() {
                 }}
               >
                 {t(link.labelKey)}
-              </Link>
+              </ProgressLink>
             ))}
           </nav>
 

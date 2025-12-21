@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Header } from "@/components/layout/Header";
+import { ProgressLink } from "@/components/utility";
 
 export default async function NotFound() {
   const locale = await getLocale();
@@ -24,7 +24,7 @@ export default async function NotFound() {
           {t("notFound")}
         </p>
 
-        <Link
+        <ProgressLink
           href={homeHref}
           className="px-6 py-3 font-medium rounded-md transition-colors focus-ring"
           style={{
@@ -33,7 +33,7 @@ export default async function NotFound() {
           }}
         >
           {t("goHome")}
-        </Link>
+        </ProgressLink>
       </main>
     </>
   );
