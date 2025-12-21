@@ -41,20 +41,18 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Slide-out panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
-        style={{ backgroundColor: "var(--background)" }}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
@@ -64,8 +62,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <Logo size={28} color="var(--foreground)" />
           <button
             onClick={onClose}
-            className="p-2 focus-ring rounded"
-            style={{ color: "var(--foreground-muted)" }}
+            className="p-2 focus-ring rounded text-foreground-muted"
             aria-label="Close menu"
           >
             <svg
@@ -92,12 +89,9 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                 <ProgressLink
                   href={link.href}
                   onClick={onClose}
-                  className="block px-4 py-3 text-lg font-medium rounded focus-ring transition-colors"
-                  style={{
-                    color: link.isPrimary
-                      ? "var(--primary)"
-                      : "var(--foreground)",
-                  }}
+                  className={`block px-4 py-3 text-lg font-medium rounded focus-ring transition-colors ${
+                    link.isPrimary ? "text-primary" : "text-foreground"
+                  }`}
                 >
                   {t(link.labelKey)}
                 </ProgressLink>

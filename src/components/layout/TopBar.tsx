@@ -16,18 +16,10 @@ export function TopBar() {
   const { switchLocale } = useLocaleSwitcher();
 
   return (
-    <div
-      className="w-full text-xs"
-      style={{
-        backgroundColor: "var(--background-muted)",
-        borderBottom: "1px solid var(--border-muted)",
-      }}
-    >
+    <div className="w-full text-xs bg-background-muted border-b border-border-muted">
       <div className="content-container flex items-center justify-between py-1.5 gap-4">
         {/* Version */}
-        <span style={{ color: "var(--foreground-subtle)" }}>
-          v{packageJson.version}
-        </span>
+        <span className="text-foreground-subtle">v{packageJson.version}</span>
         {/* Language Selector */}
         <div className="flex items-center gap-2">
           <label htmlFor="language-select" className="sr-only">
@@ -37,11 +29,7 @@ export function TopBar() {
             id="language-select"
             value={currentLocale}
             onChange={(e) => switchLocale(e.target.value as Locale)}
-            className="bg-transparent cursor-pointer focus-ring rounded px-1"
-            style={{
-              color: "var(--foreground-muted)",
-              border: "none",
-            }}
+            className="bg-transparent cursor-pointer focus-ring rounded px-1 text-foreground-muted border-none"
           >
             {locales.map((locale) => (
               <option key={locale} value={locale}>

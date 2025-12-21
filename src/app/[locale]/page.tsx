@@ -27,26 +27,14 @@ export default async function HomePage() {
       <Header />
 
       <main className="content-container max-w-4xl py-16 text-center">
-        <h1
-          className="text-5xl font-bold mb-4"
-          style={{ color: "var(--foreground)" }}
-        >
+        <h1 className="text-5xl font-bold mb-4 text-foreground">
           {t("title")}
         </h1>
-        <p
-          className="text-xl mb-8"
-          style={{ color: "var(--foreground-muted)" }}
-        >
-          {t("subtitle")}
-        </p>
+        <p className="text-xl mb-8 text-foreground-muted">{t("subtitle")}</p>
 
         <ProgressLink
           href="/tools"
-          className="inline-block px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring"
-          style={{
-            backgroundColor: "var(--primary)",
-            color: "var(--primary-foreground)",
-          }}
+          className="inline-block px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring bg-primary text-primary-foreground"
         >
           {t("browseTools")}
         </ProgressLink>

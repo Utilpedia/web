@@ -15,25 +15,13 @@ export default async function RootNotFound() {
     <NextIntlClientProvider messages={messages} locale={locale}>
       <NavigationProgressProvider>
         <Header />
-        <main
-          className="flex-1 flex flex-col items-center justify-center px-4 py-24"
-          style={{ color: "var(--foreground)" }}
-        >
+        <main className="flex-1 flex flex-col items-center justify-center px-4 py-24 text-foreground">
           <h1 className="text-4xl font-bold mb-4">404</h1>
-          <p
-            className="text-xl mb-8"
-            style={{ color: "var(--foreground-muted)" }}
-          >
-            {t("notFound")}
-          </p>
+          <p className="text-xl mb-8 text-foreground-muted">{t("notFound")}</p>
 
           <ProgressLink
             href={homeHref}
-            className="px-6 py-3 font-medium rounded-md transition-colors focus-ring"
-            style={{
-              backgroundColor: "var(--primary)",
-              color: "var(--primary-foreground)",
-            }}
+            className="px-6 py-3 font-medium rounded-md transition-colors focus-ring bg-primary text-primary-foreground"
           >
             {t("goHome")}
           </ProgressLink>

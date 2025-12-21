@@ -15,18 +15,9 @@ export async function ToolDocs({ html, isFallback }: ToolDocsProps) {
   const t = await getTranslations("common");
 
   return (
-    <section
-      className="tool-docs mt-8 pt-8"
-      style={{ borderTop: "1px solid var(--border)" }}
-    >
+    <section className="tool-docs mt-8 pt-8 border-t border-border">
       {isFallback && (
-        <div
-          className="mb-4 px-4 py-2 rounded text-sm"
-          style={{
-            backgroundColor: "var(--background-muted)",
-            color: "var(--foreground-muted)",
-          }}
-        >
+        <div className="mb-4 px-4 py-2 rounded text-sm bg-background-muted text-foreground-muted">
           {t("translationNotice")}
         </div>
       )}

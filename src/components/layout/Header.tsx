@@ -41,12 +41,9 @@ export function Header() {
               <ProgressLink
                 key={link.href}
                 href={link.href}
-                className="font-medium focus-ring rounded px-1"
-                style={{
-                  color: link.isPrimary
-                    ? "var(--primary)"
-                    : "var(--foreground-muted)",
-                }}
+                className={`font-medium focus-ring rounded px-1 ${
+                  link.isPrimary ? "text-primary" : "text-foreground-muted"
+                }`}
               >
                 {t(link.labelKey)}
               </ProgressLink>
@@ -56,8 +53,7 @@ export function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 focus-ring rounded"
-            style={{ color: "var(--foreground-muted)" }}
+            className="md:hidden p-2 focus-ring rounded text-foreground-muted"
             aria-label="Open menu"
             aria-expanded={isMobileNavOpen}
             onClick={() => setIsMobileNavOpen(true)}
