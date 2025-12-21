@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { navLinks } from "@/config/navigation";
 import { Logo } from "@/components/brand";
+import { ProgressLink } from "@/components/utility";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -89,7 +89,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <ul className="space-y-1">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link
+                <ProgressLink
                   href={link.href}
                   onClick={onClose}
                   className="block px-4 py-3 text-lg font-medium rounded focus-ring transition-colors"
@@ -100,7 +100,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                   }}
                 >
                   {t(link.labelKey)}
-                </Link>
+                </ProgressLink>
               </li>
             ))}
           </ul>
