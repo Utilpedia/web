@@ -8,15 +8,18 @@ import {
   createContext,
   useContext,
 } from "react";
+import { flushSync } from "react-dom";
 import { usePathname } from "next/navigation";
 
 // Context to allow triggering progress from anywhere (e.g., Link clicks)
 interface NavigationProgressContextType {
   start: () => void;
+  done: () => void; // For manual completion (e.g., after error)
 }
 
 const NavigationProgressContext = createContext<NavigationProgressContextType>({
   start: () => {},
+  done: () => {},
 });
 
 export function useNavigationProgress() {
@@ -27,55 +30,85 @@ interface NavigationProgressProviderProps {
   children: React.ReactNode;
 }
 
+// Minimum time the bar should be visible (ms)
+const MIN_DISPLAY_TIME = 300;
+// Starting progress percentage (visible immediately)
+const INITIAL_PROGRESS = 10;
+
 export function NavigationProgressProvider({
   children,
 }: NavigationProgressProviderProps) {
   const pathname = usePathname();
   const [isNavigating, setIsNavigating] = useState(false);
   const [progress, setProgress] = useState(0);
+
+  // Use refs for values needed in effects to avoid stale closures
   const isNavigatingRef = useRef(false);
+  const startTimeRef = useRef(0);
+  const prevPathnameRef = useRef(pathname);
 
-  // Keep ref in sync for use in effects
-  useEffect(() => {
-    isNavigatingRef.current = isNavigating;
-  }, [isNavigating]);
-
-  // Start navigation progress
+  // Start navigation progress - uses flushSync to ensure immediate render
+  // This is critical for slow networks where React might batch updates
   const start = useCallback(() => {
-    setIsNavigating(true);
-    setProgress(0);
+    isNavigatingRef.current = true;
+    startTimeRef.current = Date.now();
+    // Force synchronous render so progress bar appears immediately
+    // before Next.js starts blocking with navigation fetch
+    flushSync(() => {
+      setIsNavigating(true);
+      setProgress(INITIAL_PROGRESS);
+    });
+  }, []);
+
+  // Manually complete progress (e.g., after navigation error)
+  const done = useCallback(() => {
+    if (!isNavigatingRef.current) return;
+    isNavigatingRef.current = false;
+    setProgress(100);
+    setTimeout(() => {
+      setIsNavigating(false);
+      setProgress(0);
+    }, 200);
   }, []);
 
   // Complete navigation when pathname changes
   useEffect(() => {
+    // Skip initial mount
+    if (prevPathnameRef.current === pathname) return;
+    prevPathnameRef.current = pathname;
+
     // Only complete if we were navigating
     if (!isNavigatingRef.current) return;
 
-    // Use setTimeout to defer setState - this avoids the "cascading renders" warning
-    // by making the state update asynchronous (as a callback from external system)
+    // Calculate how long we've been showing the bar
+    const elapsed = Date.now() - startTimeRef.current;
+    const remainingMinTime = Math.max(0, MIN_DISPLAY_TIME - elapsed);
+
+    // Delay completion to ensure bar is visible for minimum time
     const completeTimer = setTimeout(() => {
       setProgress(100);
-    }, 0);
+    }, remainingMinTime);
 
+    // Reset after completion animation
     const resetTimer = setTimeout(() => {
+      isNavigatingRef.current = false;
       setIsNavigating(false);
       setProgress(0);
-    }, 200);
+    }, remainingMinTime + 200); // 200ms for the completion animation
 
     return () => {
       clearTimeout(completeTimer);
       clearTimeout(resetTimer);
     };
-     
-  }, [pathname]); // Intentionally only depend on pathname
+  }, [pathname]);
 
   // Animate progress while navigating
   useEffect(() => {
     if (!isNavigating || progress >= 90) return;
 
     // Quick initial progress, then slow down
-    const increment = progress < 30 ? 15 : progress < 60 ? 8 : 3;
-    const delay = progress < 30 ? 50 : progress < 60 ? 100 : 200;
+    const increment = progress < 30 ? 12 : progress < 60 ? 6 : 2;
+    const delay = progress < 30 ? 80 : progress < 60 ? 150 : 300;
 
     const timer = setTimeout(() => {
       setProgress((prev) => Math.min(prev + increment, 90));
@@ -85,33 +118,23 @@ export function NavigationProgressProvider({
   }, [isNavigating, progress]);
 
   return (
-    <NavigationProgressContext.Provider value={{ start }}>
-      {/* Progress Bar */}
+    <NavigationProgressContext.Provider value={{ start, done }}>
+      {/* Progress Bar Container */}
       <div
-        className="navigation-progress-container"
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "3px",
-          zIndex: 9999,
-          pointerEvents: "none",
-          opacity: isNavigating ? 1 : 0,
-          transition: "opacity 200ms ease-out",
-        }}
+        aria-hidden="true"
+        className={`
+          fixed top-0 left-0 right-0 h-[3px] z-[9999] pointer-events-none
+          transition-opacity duration-200 ease-out
+          ${isNavigating ? "opacity-100" : "opacity-0"}
+        `}
       >
+        {/* Progress Bar */}
         <div
-          className="navigation-progress-bar"
+          className="h-full transition-[width] ease-out"
           style={{
-            height: "100%",
             width: `${progress}%`,
             backgroundColor: "var(--primary)",
-            boxShadow: "0 0 10px var(--primary), 0 0 5px var(--primary)",
-            transition:
-              progress === 100
-                ? "width 100ms ease-out"
-                : "width 200ms ease-out",
+            transitionDuration: progress === 100 ? "150ms" : "200ms",
           }}
         />
       </div>
