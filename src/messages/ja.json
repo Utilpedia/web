@@ -40,6 +40,446 @@
       "name": "パントン変換",
       "description": "パントンカラーをHEX、RGB、CMYKに変換"
     },
+    "hex-to-rgb": {
+      "name": "HEXからRGBへ変換",
+      "description": "HEXカラーコードをRGB値に変換"
+    },
+    "hex-to-rgba": {
+      "name": "HEXからRGBAへ変換",
+      "description": "HEXカラーコードをRGBA値に変換"
+    },
+    "hex-to-hsl": {
+      "name": "HEXからHSLへ変換",
+      "description": "HEXカラーコードをHSL値に変換"
+    },
+    "hex-to-hsla": {
+      "name": "HEXからHSLAへ変換",
+      "description": "HEXカラーコードをHSLA値に変換"
+    },
+    "hex-to-hsv": {
+      "name": "HEXからHSVへ変換",
+      "description": "HEXカラーコードをHSV値に変換"
+    },
+    "hex-to-hsva": {
+      "name": "HEXからHSVAへ変換",
+      "description": "HEXカラーコードをHSVA値に変換"
+    },
+    "hex-to-cmyk": {
+      "name": "HEXからCMYKへ変換",
+      "description": "HEXカラーコードをCMYK値に変換"
+    },
+    "hex-to-lab": {
+      "name": "HEXからLABへ変換",
+      "description": "HEXカラーコードをLAB値に変換"
+    },
+    "hex-to-lch": {
+      "name": "HEXからLCHへ変換",
+      "description": "HEXカラーコードをLCH値に変換"
+    },
+    "hex-to-oklch": {
+      "name": "HEXからOKLCHへ変換",
+      "description": "HEXカラーコードをOKLCH値に変換"
+    },
+    "rgb-to-hex": {
+      "name": "RGBからHEXへ変換",
+      "description": "RGBカラーコードをHEX値に変換"
+    },
+    "rgb-to-rgba": {
+      "name": "RGBからRGBAへ変換",
+      "description": "RGBカラーコードをRGBA値に変換"
+    },
+    "rgb-to-hsl": {
+      "name": "RGBからHSLへ変換",
+      "description": "RGBカラーコードをHSL値に変換"
+    },
+    "rgb-to-hsla": {
+      "name": "RGBからHSLAへ変換",
+      "description": "RGBカラーコードをHSLA値に変換"
+    },
+    "rgb-to-hsv": {
+      "name": "RGBからHSVへ変換",
+      "description": "RGBカラーコードをHSV値に変換"
+    },
+    "rgb-to-hsva": {
+      "name": "RGBからHSVAへ変換",
+      "description": "RGBカラーコードをHSVA値に変換"
+    },
+    "rgb-to-cmyk": {
+      "name": "RGBからCMYKへ変換",
+      "description": "RGBカラーコードをCMYK値に変換"
+    },
+    "rgb-to-lab": {
+      "name": "RGBからLABへ変換",
+      "description": "RGBカラーコードをLAB値に変換"
+    },
+    "rgb-to-lch": {
+      "name": "RGBからLCHへ変換",
+      "description": "RGBカラーコードをLCH値に変換"
+    },
+    "rgb-to-oklch": {
+      "name": "RGBからOKLCHへ変換",
+      "description": "RGBカラーコードをOKLCH値に変換"
+    },
+    "rgba-to-hex": {
+      "name": "RGBAからHEXへ変換",
+      "description": "RGBAカラーコードをHEX値に変換"
+    },
+    "rgba-to-rgb": {
+      "name": "RGBAからRGBへ変換",
+      "description": "RGBAカラーコードをRGB値に変換"
+    },
+    "rgba-to-hsl": {
+      "name": "RGBAからHSLへ変換",
+      "description": "RGBAカラーコードをHSL値に変換"
+    },
+    "rgba-to-hsla": {
+      "name": "RGBAからHSLAへ変換",
+      "description": "RGBAカラーコードをHSLA値に変換"
+    },
+    "rgba-to-hsv": {
+      "name": "RGBAからHSVへ変換",
+      "description": "RGBAカラーコードをHSV値に変換"
+    },
+    "rgba-to-hsva": {
+      "name": "RGBAからHSVAへ変換",
+      "description": "RGBAカラーコードをHSVA値に変換"
+    },
+    "rgba-to-cmyk": {
+      "name": "RGBAからCMYKへ変換",
+      "description": "RGBAカラーコードをCMYK値に変換"
+    },
+    "rgba-to-lab": {
+      "name": "RGBAからLABへ変換",
+      "description": "RGBAカラーコードをLAB値に変換"
+    },
+    "rgba-to-lch": {
+      "name": "RGBAからLCHへ変換",
+      "description": "RGBAカラーコードをLCH値に変換"
+    },
+    "rgba-to-oklch": {
+      "name": "RGBAからOKLCHへ変換",
+      "description": "RGBAカラーコードをOKLCH値に変換"
+    },
+    "hsl-to-hex": {
+      "name": "HSLからHEXへ変換",
+      "description": "HSLカラーコードをHEX値に変換"
+    },
+    "hsl-to-rgb": {
+      "name": "HSLからRGBへ変換",
+      "description": "HSLカラーコードをRGB値に変換"
+    },
+    "hsl-to-rgba": {
+      "name": "HSLからRGBAへ変換",
+      "description": "HSLカラーコードをRGBA値に変換"
+    },
+    "hsl-to-hsla": {
+      "name": "HSLからHSLAへ変換",
+      "description": "HSLカラーコードをHSLA値に変換"
+    },
+    "hsl-to-hsv": {
+      "name": "HSLからHSVへ変換",
+      "description": "HSLカラーコードをHSV値に変換"
+    },
+    "hsl-to-hsva": {
+      "name": "HSLからHSVAへ変換",
+      "description": "HSLカラーコードをHSVA値に変換"
+    },
+    "hsl-to-cmyk": {
+      "name": "HSLからCMYKへ変換",
+      "description": "HSLカラーコードをCMYK値に変換"
+    },
+    "hsl-to-lab": {
+      "name": "HSLからLABへ変換",
+      "description": "HSLカラーコードをLAB値に変換"
+    },
+    "hsl-to-lch": {
+      "name": "HSLからLCHへ変換",
+      "description": "HSLカラーコードをLCH値に変換"
+    },
+    "hsl-to-oklch": {
+      "name": "HSLからOKLCHへ変換",
+      "description": "HSLカラーコードをOKLCH値に変換"
+    },
+    "hsla-to-hex": {
+      "name": "HSLAからHEXへ変換",
+      "description": "HSLAカラーコードをHEX値に変換"
+    },
+    "hsla-to-rgb": {
+      "name": "HSLAからRGBへ変換",
+      "description": "HSLAカラーコードをRGB値に変換"
+    },
+    "hsla-to-rgba": {
+      "name": "HSLAからRGBAへ変換",
+      "description": "HSLAカラーコードをRGBA値に変換"
+    },
+    "hsla-to-hsl": {
+      "name": "HSLAからHSLへ変換",
+      "description": "HSLAカラーコードをHSL値に変換"
+    },
+    "hsla-to-hsv": {
+      "name": "HSLAからHSVへ変換",
+      "description": "HSLAカラーコードをHSV値に変換"
+    },
+    "hsla-to-hsva": {
+      "name": "HSLAからHSVAへ変換",
+      "description": "HSLAカラーコードをHSVA値に変換"
+    },
+    "hsla-to-cmyk": {
+      "name": "HSLAからCMYKへ変換",
+      "description": "HSLAカラーコードをCMYK値に変換"
+    },
+    "hsla-to-lab": {
+      "name": "HSLAからLABへ変換",
+      "description": "HSLAカラーコードをLAB値に変換"
+    },
+    "hsla-to-lch": {
+      "name": "HSLAからLCHへ変換",
+      "description": "HSLAカラーコードをLCH値に変換"
+    },
+    "hsla-to-oklch": {
+      "name": "HSLAからOKLCHへ変換",
+      "description": "HSLAカラーコードをOKLCH値に変換"
+    },
+    "hsv-to-hex": {
+      "name": "HSVからHEXへ変換",
+      "description": "HSVカラーコードをHEX値に変換"
+    },
+    "hsv-to-rgb": {
+      "name": "HSVからRGBへ変換",
+      "description": "HSVカラーコードをRGB値に変換"
+    },
+    "hsv-to-rgba": {
+      "name": "HSVからRGBAへ変換",
+      "description": "HSVカラーコードをRGBA値に変換"
+    },
+    "hsv-to-hsl": {
+      "name": "HSVからHSLへ変換",
+      "description": "HSVカラーコードをHSL値に変換"
+    },
+    "hsv-to-hsla": {
+      "name": "HSVからHSLAへ変換",
+      "description": "HSVカラーコードをHSLA値に変換"
+    },
+    "hsv-to-hsva": {
+      "name": "HSVからHSVAへ変換",
+      "description": "HSVカラーコードをHSVA値に変換"
+    },
+    "hsv-to-cmyk": {
+      "name": "HSVからCMYKへ変換",
+      "description": "HSVカラーコードをCMYK値に変換"
+    },
+    "hsv-to-lab": {
+      "name": "HSVからLABへ変換",
+      "description": "HSVカラーコードをLAB値に変換"
+    },
+    "hsv-to-lch": {
+      "name": "HSVからLCHへ変換",
+      "description": "HSVカラーコードをLCH値に変換"
+    },
+    "hsv-to-oklch": {
+      "name": "HSVからOKLCHへ変換",
+      "description": "HSVカラーコードをOKLCH値に変換"
+    },
+    "hsva-to-hex": {
+      "name": "HSVAからHEXへ変換",
+      "description": "HSVAカラーコードをHEX値に変換"
+    },
+    "hsva-to-rgb": {
+      "name": "HSVAからRGBへ変換",
+      "description": "HSVAカラーコードをRGB値に変換"
+    },
+    "hsva-to-rgba": {
+      "name": "HSVAからRGBAへ変換",
+      "description": "HSVAカラーコードをRGBA値に変換"
+    },
+    "hsva-to-hsl": {
+      "name": "HSVAからHSLへ変換",
+      "description": "HSVAカラーコードをHSL値に変換"
+    },
+    "hsva-to-hsla": {
+      "name": "HSVAからHSLAへ変換",
+      "description": "HSVAカラーコードをHSLA値に変換"
+    },
+    "hsva-to-hsv": {
+      "name": "HSVAからHSVへ変換",
+      "description": "HSVAカラーコードをHSV値に変換"
+    },
+    "hsva-to-cmyk": {
+      "name": "HSVAからCMYKへ変換",
+      "description": "HSVAカラーコードをCMYK値に変換"
+    },
+    "hsva-to-lab": {
+      "name": "HSVAからLABへ変換",
+      "description": "HSVAカラーコードをLAB値に変換"
+    },
+    "hsva-to-lch": {
+      "name": "HSVAからLCHへ変換",
+      "description": "HSVAカラーコードをLCH値に変換"
+    },
+    "hsva-to-oklch": {
+      "name": "HSVAからOKLCHへ変換",
+      "description": "HSVAカラーコードをOKLCH値に変換"
+    },
+    "cmyk-to-hex": {
+      "name": "CMYKからHEXへ変換",
+      "description": "CMYKカラーコードをHEX値に変換"
+    },
+    "cmyk-to-rgb": {
+      "name": "CMYKからRGBへ変換",
+      "description": "CMYKカラーコードをRGB値に変換"
+    },
+    "cmyk-to-rgba": {
+      "name": "CMYKからRGBAへ変換",
+      "description": "CMYKカラーコードをRGBA値に変換"
+    },
+    "cmyk-to-hsl": {
+      "name": "CMYKからHSLへ変換",
+      "description": "CMYKカラーコードをHSL値に変換"
+    },
+    "cmyk-to-hsla": {
+      "name": "CMYKからHSLAへ変換",
+      "description": "CMYKカラーコードをHSLA値に変換"
+    },
+    "cmyk-to-hsv": {
+      "name": "CMYKからHSVへ変換",
+      "description": "CMYKカラーコードをHSV値に変換"
+    },
+    "cmyk-to-hsva": {
+      "name": "CMYKからHSVAへ変換",
+      "description": "CMYKカラーコードをHSVA値に変換"
+    },
+    "cmyk-to-lab": {
+      "name": "CMYKからLABへ変換",
+      "description": "CMYKカラーコードをLAB値に変換"
+    },
+    "cmyk-to-lch": {
+      "name": "CMYKからLCHへ変換",
+      "description": "CMYKカラーコードをLCH値に変換"
+    },
+    "cmyk-to-oklch": {
+      "name": "CMYKからOKLCHへ変換",
+      "description": "CMYKカラーコードをOKLCH値に変換"
+    },
+    "lab-to-hex": {
+      "name": "LABからHEXへ変換",
+      "description": "LABカラーコードをHEX値に変換"
+    },
+    "lab-to-rgb": {
+      "name": "LABからRGBへ変換",
+      "description": "LABカラーコードをRGB値に変換"
+    },
+    "lab-to-rgba": {
+      "name": "LABからRGBAへ変換",
+      "description": "LABカラーコードをRGBA値に変換"
+    },
+    "lab-to-hsl": {
+      "name": "LABからHSLへ変換",
+      "description": "LABカラーコードをHSL値に変換"
+    },
+    "lab-to-hsla": {
+      "name": "LABからHSLAへ変換",
+      "description": "LABカラーコードをHSLA値に変換"
+    },
+    "lab-to-hsv": {
+      "name": "LABからHSVへ変換",
+      "description": "LABカラーコードをHSV値に変換"
+    },
+    "lab-to-hsva": {
+      "name": "LABからHSVAへ変換",
+      "description": "LABカラーコードをHSVA値に変換"
+    },
+    "lab-to-cmyk": {
+      "name": "LABからCMYKへ変換",
+      "description": "LABカラーコードをCMYK値に変換"
+    },
+    "lab-to-lch": {
+      "name": "LABからLCHへ変換",
+      "description": "LABカラーコードをLCH値に変換"
+    },
+    "lab-to-oklch": {
+      "name": "LABからOKLCHへ変換",
+      "description": "LABカラーコードをOKLCH値に変換"
+    },
+    "lch-to-hex": {
+      "name": "LCHからHEXへ変換",
+      "description": "LCHカラーコードをHEX値に変換"
+    },
+    "lch-to-rgb": {
+      "name": "LCHからRGBへ変換",
+      "description": "LCHカラーコードをRGB値に変換"
+    },
+    "lch-to-rgba": {
+      "name": "LCHからRGBAへ変換",
+      "description": "LCHカラーコードをRGBA値に変換"
+    },
+    "lch-to-hsl": {
+      "name": "LCHからHSLへ変換",
+      "description": "LCHカラーコードをHSL値に変換"
+    },
+    "lch-to-hsla": {
+      "name": "LCHからHSLAへ変換",
+      "description": "LCHカラーコードをHSLA値に変換"
+    },
+    "lch-to-hsv": {
+      "name": "LCHからHSVへ変換",
+      "description": "LCHカラーコードをHSV値に変換"
+    },
+    "lch-to-hsva": {
+      "name": "LCHからHSVAへ変換",
+      "description": "LCHカラーコードをHSVA値に変換"
+    },
+    "lch-to-cmyk": {
+      "name": "LCHからCMYKへ変換",
+      "description": "LCHカラーコードをCMYK値に変換"
+    },
+    "lch-to-lab": {
+      "name": "LCHからLABへ変換",
+      "description": "LCHカラーコードをLAB値に変換"
+    },
+    "lch-to-oklch": {
+      "name": "LCHからOKLCHへ変換",
+      "description": "LCHカラーコードをOKLCH値に変換"
+    },
+    "oklch-to-hex": {
+      "name": "OKLCHからHEXへ変換",
+      "description": "OKLCHカラーコードをHEX値に変換"
+    },
+    "oklch-to-rgb": {
+      "name": "OKLCHからRGBへ変換",
+      "description": "OKLCHカラーコードをRGB値に変換"
+    },
+    "oklch-to-rgba": {
+      "name": "OKLCHからRGBAへ変換",
+      "description": "OKLCHカラーコードをRGBA値に変換"
+    },
+    "oklch-to-hsl": {
+      "name": "OKLCHからHSLへ変換",
+      "description": "OKLCHカラーコードをHSL値に変換"
+    },
+    "oklch-to-hsla": {
+      "name": "OKLCHからHSLAへ変換",
+      "description": "OKLCHカラーコードをHSLA値に変換"
+    },
+    "oklch-to-hsv": {
+      "name": "OKLCHからHSVへ変換",
+      "description": "OKLCHカラーコードをHSV値に変換"
+    },
+    "oklch-to-hsva": {
+      "name": "OKLCHからHSVAへ変換",
+      "description": "OKLCHカラーコードをHSVA値に変換"
+    },
+    "oklch-to-cmyk": {
+      "name": "OKLCHからCMYKへ変換",
+      "description": "OKLCHカラーコードをCMYK値に変換"
+    },
+    "oklch-to-lab": {
+      "name": "OKLCHからLABへ変換",
+      "description": "OKLCHカラーコードをLAB値に変換"
+    },
+    "oklch-to-lch": {
+      "name": "OKLCHからLCHへ変換",
+      "description": "OKLCHカラーコードをLCH値に変換"
+    },
     "placeholder-example": {
       "name": "プレースホルダー例",
       "description": "「近日公開」状態を示すプレースホルダーツール"
@@ -55,5 +495,16 @@
     "modeRolls": "個別の結果を表示",
     "sidesHint": "{min}から{max}の間",
     "countHint": "{min}から{max}の間"
+  },
+  "colorConverterTool": {
+    "title": "{from}から{to}への変換",
+    "fromLabel": "変換元",
+    "toLabel": "変換先",
+    "swap": "入出力を入れ替え",
+    "inputLabel": "{format}カラーを入力",
+    "colorPreview": "カラープレビュー",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "invalidInput": "有効なカラー値を入力してください。"
   }
 }
