@@ -40,6 +40,446 @@
       "name": "Pantone Converter",
       "description": "Convert Pantone colors to HEX, RGB, and CMYK"
     },
+    "hex-to-rgb": {
+      "name": "HEX to RGB Converter",
+      "description": "Convert HEX color codes to RGB values"
+    },
+    "hex-to-rgba": {
+      "name": "HEX to RGBA Converter",
+      "description": "Convert HEX color codes to RGBA values"
+    },
+    "hex-to-hsl": {
+      "name": "HEX to HSL Converter",
+      "description": "Convert HEX color codes to HSL values"
+    },
+    "hex-to-hsla": {
+      "name": "HEX to HSLA Converter",
+      "description": "Convert HEX color codes to HSLA values"
+    },
+    "hex-to-hsv": {
+      "name": "HEX to HSV Converter",
+      "description": "Convert HEX color codes to HSV values"
+    },
+    "hex-to-hsva": {
+      "name": "HEX to HSVA Converter",
+      "description": "Convert HEX color codes to HSVA values"
+    },
+    "hex-to-cmyk": {
+      "name": "HEX to CMYK Converter",
+      "description": "Convert HEX color codes to CMYK values"
+    },
+    "hex-to-lab": {
+      "name": "HEX to LAB Converter",
+      "description": "Convert HEX color codes to LAB values"
+    },
+    "hex-to-lch": {
+      "name": "HEX to LCH Converter",
+      "description": "Convert HEX color codes to LCH values"
+    },
+    "hex-to-oklch": {
+      "name": "HEX to OKLCH Converter",
+      "description": "Convert HEX color codes to OKLCH values"
+    },
+    "rgb-to-hex": {
+      "name": "RGB to HEX Converter",
+      "description": "Convert RGB color codes to HEX values"
+    },
+    "rgb-to-rgba": {
+      "name": "RGB to RGBA Converter",
+      "description": "Convert RGB color codes to RGBA values"
+    },
+    "rgb-to-hsl": {
+      "name": "RGB to HSL Converter",
+      "description": "Convert RGB color codes to HSL values"
+    },
+    "rgb-to-hsla": {
+      "name": "RGB to HSLA Converter",
+      "description": "Convert RGB color codes to HSLA values"
+    },
+    "rgb-to-hsv": {
+      "name": "RGB to HSV Converter",
+      "description": "Convert RGB color codes to HSV values"
+    },
+    "rgb-to-hsva": {
+      "name": "RGB to HSVA Converter",
+      "description": "Convert RGB color codes to HSVA values"
+    },
+    "rgb-to-cmyk": {
+      "name": "RGB to CMYK Converter",
+      "description": "Convert RGB color codes to CMYK values"
+    },
+    "rgb-to-lab": {
+      "name": "RGB to LAB Converter",
+      "description": "Convert RGB color codes to LAB values"
+    },
+    "rgb-to-lch": {
+      "name": "RGB to LCH Converter",
+      "description": "Convert RGB color codes to LCH values"
+    },
+    "rgb-to-oklch": {
+      "name": "RGB to OKLCH Converter",
+      "description": "Convert RGB color codes to OKLCH values"
+    },
+    "rgba-to-hex": {
+      "name": "RGBA to HEX Converter",
+      "description": "Convert RGBA color codes to HEX values"
+    },
+    "rgba-to-rgb": {
+      "name": "RGBA to RGB Converter",
+      "description": "Convert RGBA color codes to RGB values"
+    },
+    "rgba-to-hsl": {
+      "name": "RGBA to HSL Converter",
+      "description": "Convert RGBA color codes to HSL values"
+    },
+    "rgba-to-hsla": {
+      "name": "RGBA to HSLA Converter",
+      "description": "Convert RGBA color codes to HSLA values"
+    },
+    "rgba-to-hsv": {
+      "name": "RGBA to HSV Converter",
+      "description": "Convert RGBA color codes to HSV values"
+    },
+    "rgba-to-hsva": {
+      "name": "RGBA to HSVA Converter",
+      "description": "Convert RGBA color codes to HSVA values"
+    },
+    "rgba-to-cmyk": {
+      "name": "RGBA to CMYK Converter",
+      "description": "Convert RGBA color codes to CMYK values"
+    },
+    "rgba-to-lab": {
+      "name": "RGBA to LAB Converter",
+      "description": "Convert RGBA color codes to LAB values"
+    },
+    "rgba-to-lch": {
+      "name": "RGBA to LCH Converter",
+      "description": "Convert RGBA color codes to LCH values"
+    },
+    "rgba-to-oklch": {
+      "name": "RGBA to OKLCH Converter",
+      "description": "Convert RGBA color codes to OKLCH values"
+    },
+    "hsl-to-hex": {
+      "name": "HSL to HEX Converter",
+      "description": "Convert HSL color codes to HEX values"
+    },
+    "hsl-to-rgb": {
+      "name": "HSL to RGB Converter",
+      "description": "Convert HSL color codes to RGB values"
+    },
+    "hsl-to-rgba": {
+      "name": "HSL to RGBA Converter",
+      "description": "Convert HSL color codes to RGBA values"
+    },
+    "hsl-to-hsla": {
+      "name": "HSL to HSLA Converter",
+      "description": "Convert HSL color codes to HSLA values"
+    },
+    "hsl-to-hsv": {
+      "name": "HSL to HSV Converter",
+      "description": "Convert HSL color codes to HSV values"
+    },
+    "hsl-to-hsva": {
+      "name": "HSL to HSVA Converter",
+      "description": "Convert HSL color codes to HSVA values"
+    },
+    "hsl-to-cmyk": {
+      "name": "HSL to CMYK Converter",
+      "description": "Convert HSL color codes to CMYK values"
+    },
+    "hsl-to-lab": {
+      "name": "HSL to LAB Converter",
+      "description": "Convert HSL color codes to LAB values"
+    },
+    "hsl-to-lch": {
+      "name": "HSL to LCH Converter",
+      "description": "Convert HSL color codes to LCH values"
+    },
+    "hsl-to-oklch": {
+      "name": "HSL to OKLCH Converter",
+      "description": "Convert HSL color codes to OKLCH values"
+    },
+    "hsla-to-hex": {
+      "name": "HSLA to HEX Converter",
+      "description": "Convert HSLA color codes to HEX values"
+    },
+    "hsla-to-rgb": {
+      "name": "HSLA to RGB Converter",
+      "description": "Convert HSLA color codes to RGB values"
+    },
+    "hsla-to-rgba": {
+      "name": "HSLA to RGBA Converter",
+      "description": "Convert HSLA color codes to RGBA values"
+    },
+    "hsla-to-hsl": {
+      "name": "HSLA to HSL Converter",
+      "description": "Convert HSLA color codes to HSL values"
+    },
+    "hsla-to-hsv": {
+      "name": "HSLA to HSV Converter",
+      "description": "Convert HSLA color codes to HSV values"
+    },
+    "hsla-to-hsva": {
+      "name": "HSLA to HSVA Converter",
+      "description": "Convert HSLA color codes to HSVA values"
+    },
+    "hsla-to-cmyk": {
+      "name": "HSLA to CMYK Converter",
+      "description": "Convert HSLA color codes to CMYK values"
+    },
+    "hsla-to-lab": {
+      "name": "HSLA to LAB Converter",
+      "description": "Convert HSLA color codes to LAB values"
+    },
+    "hsla-to-lch": {
+      "name": "HSLA to LCH Converter",
+      "description": "Convert HSLA color codes to LCH values"
+    },
+    "hsla-to-oklch": {
+      "name": "HSLA to OKLCH Converter",
+      "description": "Convert HSLA color codes to OKLCH values"
+    },
+    "hsv-to-hex": {
+      "name": "HSV to HEX Converter",
+      "description": "Convert HSV color codes to HEX values"
+    },
+    "hsv-to-rgb": {
+      "name": "HSV to RGB Converter",
+      "description": "Convert HSV color codes to RGB values"
+    },
+    "hsv-to-rgba": {
+      "name": "HSV to RGBA Converter",
+      "description": "Convert HSV color codes to RGBA values"
+    },
+    "hsv-to-hsl": {
+      "name": "HSV to HSL Converter",
+      "description": "Convert HSV color codes to HSL values"
+    },
+    "hsv-to-hsla": {
+      "name": "HSV to HSLA Converter",
+      "description": "Convert HSV color codes to HSLA values"
+    },
+    "hsv-to-hsva": {
+      "name": "HSV to HSVA Converter",
+      "description": "Convert HSV color codes to HSVA values"
+    },
+    "hsv-to-cmyk": {
+      "name": "HSV to CMYK Converter",
+      "description": "Convert HSV color codes to CMYK values"
+    },
+    "hsv-to-lab": {
+      "name": "HSV to LAB Converter",
+      "description": "Convert HSV color codes to LAB values"
+    },
+    "hsv-to-lch": {
+      "name": "HSV to LCH Converter",
+      "description": "Convert HSV color codes to LCH values"
+    },
+    "hsv-to-oklch": {
+      "name": "HSV to OKLCH Converter",
+      "description": "Convert HSV color codes to OKLCH values"
+    },
+    "hsva-to-hex": {
+      "name": "HSVA to HEX Converter",
+      "description": "Convert HSVA color codes to HEX values"
+    },
+    "hsva-to-rgb": {
+      "name": "HSVA to RGB Converter",
+      "description": "Convert HSVA color codes to RGB values"
+    },
+    "hsva-to-rgba": {
+      "name": "HSVA to RGBA Converter",
+      "description": "Convert HSVA color codes to RGBA values"
+    },
+    "hsva-to-hsl": {
+      "name": "HSVA to HSL Converter",
+      "description": "Convert HSVA color codes to HSL values"
+    },
+    "hsva-to-hsla": {
+      "name": "HSVA to HSLA Converter",
+      "description": "Convert HSVA color codes to HSLA values"
+    },
+    "hsva-to-hsv": {
+      "name": "HSVA to HSV Converter",
+      "description": "Convert HSVA color codes to HSV values"
+    },
+    "hsva-to-cmyk": {
+      "name": "HSVA to CMYK Converter",
+      "description": "Convert HSVA color codes to CMYK values"
+    },
+    "hsva-to-lab": {
+      "name": "HSVA to LAB Converter",
+      "description": "Convert HSVA color codes to LAB values"
+    },
+    "hsva-to-lch": {
+      "name": "HSVA to LCH Converter",
+      "description": "Convert HSVA color codes to LCH values"
+    },
+    "hsva-to-oklch": {
+      "name": "HSVA to OKLCH Converter",
+      "description": "Convert HSVA color codes to OKLCH values"
+    },
+    "cmyk-to-hex": {
+      "name": "CMYK to HEX Converter",
+      "description": "Convert CMYK color codes to HEX values"
+    },
+    "cmyk-to-rgb": {
+      "name": "CMYK to RGB Converter",
+      "description": "Convert CMYK color codes to RGB values"
+    },
+    "cmyk-to-rgba": {
+      "name": "CMYK to RGBA Converter",
+      "description": "Convert CMYK color codes to RGBA values"
+    },
+    "cmyk-to-hsl": {
+      "name": "CMYK to HSL Converter",
+      "description": "Convert CMYK color codes to HSL values"
+    },
+    "cmyk-to-hsla": {
+      "name": "CMYK to HSLA Converter",
+      "description": "Convert CMYK color codes to HSLA values"
+    },
+    "cmyk-to-hsv": {
+      "name": "CMYK to HSV Converter",
+      "description": "Convert CMYK color codes to HSV values"
+    },
+    "cmyk-to-hsva": {
+      "name": "CMYK to HSVA Converter",
+      "description": "Convert CMYK color codes to HSVA values"
+    },
+    "cmyk-to-lab": {
+      "name": "CMYK to LAB Converter",
+      "description": "Convert CMYK color codes to LAB values"
+    },
+    "cmyk-to-lch": {
+      "name": "CMYK to LCH Converter",
+      "description": "Convert CMYK color codes to LCH values"
+    },
+    "cmyk-to-oklch": {
+      "name": "CMYK to OKLCH Converter",
+      "description": "Convert CMYK color codes to OKLCH values"
+    },
+    "lab-to-hex": {
+      "name": "LAB to HEX Converter",
+      "description": "Convert LAB color codes to HEX values"
+    },
+    "lab-to-rgb": {
+      "name": "LAB to RGB Converter",
+      "description": "Convert LAB color codes to RGB values"
+    },
+    "lab-to-rgba": {
+      "name": "LAB to RGBA Converter",
+      "description": "Convert LAB color codes to RGBA values"
+    },
+    "lab-to-hsl": {
+      "name": "LAB to HSL Converter",
+      "description": "Convert LAB color codes to HSL values"
+    },
+    "lab-to-hsla": {
+      "name": "LAB to HSLA Converter",
+      "description": "Convert LAB color codes to HSLA values"
+    },
+    "lab-to-hsv": {
+      "name": "LAB to HSV Converter",
+      "description": "Convert LAB color codes to HSV values"
+    },
+    "lab-to-hsva": {
+      "name": "LAB to HSVA Converter",
+      "description": "Convert LAB color codes to HSVA values"
+    },
+    "lab-to-cmyk": {
+      "name": "LAB to CMYK Converter",
+      "description": "Convert LAB color codes to CMYK values"
+    },
+    "lab-to-lch": {
+      "name": "LAB to LCH Converter",
+      "description": "Convert LAB color codes to LCH values"
+    },
+    "lab-to-oklch": {
+      "name": "LAB to OKLCH Converter",
+      "description": "Convert LAB color codes to OKLCH values"
+    },
+    "lch-to-hex": {
+      "name": "LCH to HEX Converter",
+      "description": "Convert LCH color codes to HEX values"
+    },
+    "lch-to-rgb": {
+      "name": "LCH to RGB Converter",
+      "description": "Convert LCH color codes to RGB values"
+    },
+    "lch-to-rgba": {
+      "name": "LCH to RGBA Converter",
+      "description": "Convert LCH color codes to RGBA values"
+    },
+    "lch-to-hsl": {
+      "name": "LCH to HSL Converter",
+      "description": "Convert LCH color codes to HSL values"
+    },
+    "lch-to-hsla": {
+      "name": "LCH to HSLA Converter",
+      "description": "Convert LCH color codes to HSLA values"
+    },
+    "lch-to-hsv": {
+      "name": "LCH to HSV Converter",
+      "description": "Convert LCH color codes to HSV values"
+    },
+    "lch-to-hsva": {
+      "name": "LCH to HSVA Converter",
+      "description": "Convert LCH color codes to HSVA values"
+    },
+    "lch-to-cmyk": {
+      "name": "LCH to CMYK Converter",
+      "description": "Convert LCH color codes to CMYK values"
+    },
+    "lch-to-lab": {
+      "name": "LCH to LAB Converter",
+      "description": "Convert LCH color codes to LAB values"
+    },
+    "lch-to-oklch": {
+      "name": "LCH to OKLCH Converter",
+      "description": "Convert LCH color codes to OKLCH values"
+    },
+    "oklch-to-hex": {
+      "name": "OKLCH to HEX Converter",
+      "description": "Convert OKLCH color codes to HEX values"
+    },
+    "oklch-to-rgb": {
+      "name": "OKLCH to RGB Converter",
+      "description": "Convert OKLCH color codes to RGB values"
+    },
+    "oklch-to-rgba": {
+      "name": "OKLCH to RGBA Converter",
+      "description": "Convert OKLCH color codes to RGBA values"
+    },
+    "oklch-to-hsl": {
+      "name": "OKLCH to HSL Converter",
+      "description": "Convert OKLCH color codes to HSL values"
+    },
+    "oklch-to-hsla": {
+      "name": "OKLCH to HSLA Converter",
+      "description": "Convert OKLCH color codes to HSLA values"
+    },
+    "oklch-to-hsv": {
+      "name": "OKLCH to HSV Converter",
+      "description": "Convert OKLCH color codes to HSV values"
+    },
+    "oklch-to-hsva": {
+      "name": "OKLCH to HSVA Converter",
+      "description": "Convert OKLCH color codes to HSVA values"
+    },
+    "oklch-to-cmyk": {
+      "name": "OKLCH to CMYK Converter",
+      "description": "Convert OKLCH color codes to CMYK values"
+    },
+    "oklch-to-lab": {
+      "name": "OKLCH to LAB Converter",
+      "description": "Convert OKLCH color codes to LAB values"
+    },
+    "oklch-to-lch": {
+      "name": "OKLCH to LCH Converter",
+      "description": "Convert OKLCH color codes to LCH values"
+    },
     "placeholder-example": {
       "name": "Placeholder Example",
       "description": "This is a placeholder tool to demonstrate the 'Coming Soon' state"
@@ -83,5 +523,16 @@
     "noResults": "No Pantone colors found. Try a different search term.",
     "copy": "Copy",
     "copied": "Copied!"
+  },
+  "colorConverterTool": {
+    "title": "{from} to {to} Converter",
+    "fromLabel": "From",
+    "toLabel": "To",
+    "swap": "Swap Input Output",
+    "inputLabel": "Enter {format} Color",
+    "colorPreview": "Color preview",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "invalidInput": "Enter a valid color value to see the conversion."
   }
 }

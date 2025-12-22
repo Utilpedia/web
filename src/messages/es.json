@@ -40,6 +40,446 @@
       "name": "Conversor Pantone",
       "description": "Convierte colores Pantone a HEX, RGB y CMYK"
     },
+    "hex-to-rgb": {
+      "name": "Conversor HEX a RGB",
+      "description": "Convierte códigos de color HEX a valores RGB"
+    },
+    "hex-to-rgba": {
+      "name": "Conversor HEX a RGBA",
+      "description": "Convierte códigos de color HEX a valores RGBA"
+    },
+    "hex-to-hsl": {
+      "name": "Conversor HEX a HSL",
+      "description": "Convierte códigos de color HEX a valores HSL"
+    },
+    "hex-to-hsla": {
+      "name": "Conversor HEX a HSLA",
+      "description": "Convierte códigos de color HEX a valores HSLA"
+    },
+    "hex-to-hsv": {
+      "name": "Conversor HEX a HSV",
+      "description": "Convierte códigos de color HEX a valores HSV"
+    },
+    "hex-to-hsva": {
+      "name": "Conversor HEX a HSVA",
+      "description": "Convierte códigos de color HEX a valores HSVA"
+    },
+    "hex-to-cmyk": {
+      "name": "Conversor HEX a CMYK",
+      "description": "Convierte códigos de color HEX a valores CMYK"
+    },
+    "hex-to-lab": {
+      "name": "Conversor HEX a LAB",
+      "description": "Convierte códigos de color HEX a valores LAB"
+    },
+    "hex-to-lch": {
+      "name": "Conversor HEX a LCH",
+      "description": "Convierte códigos de color HEX a valores LCH"
+    },
+    "hex-to-oklch": {
+      "name": "Conversor HEX a OKLCH",
+      "description": "Convierte códigos de color HEX a valores OKLCH"
+    },
+    "rgb-to-hex": {
+      "name": "Conversor RGB a HEX",
+      "description": "Convierte códigos de color RGB a valores HEX"
+    },
+    "rgb-to-rgba": {
+      "name": "Conversor RGB a RGBA",
+      "description": "Convierte códigos de color RGB a valores RGBA"
+    },
+    "rgb-to-hsl": {
+      "name": "Conversor RGB a HSL",
+      "description": "Convierte códigos de color RGB a valores HSL"
+    },
+    "rgb-to-hsla": {
+      "name": "Conversor RGB a HSLA",
+      "description": "Convierte códigos de color RGB a valores HSLA"
+    },
+    "rgb-to-hsv": {
+      "name": "Conversor RGB a HSV",
+      "description": "Convierte códigos de color RGB a valores HSV"
+    },
+    "rgb-to-hsva": {
+      "name": "Conversor RGB a HSVA",
+      "description": "Convierte códigos de color RGB a valores HSVA"
+    },
+    "rgb-to-cmyk": {
+      "name": "Conversor RGB a CMYK",
+      "description": "Convierte códigos de color RGB a valores CMYK"
+    },
+    "rgb-to-lab": {
+      "name": "Conversor RGB a LAB",
+      "description": "Convierte códigos de color RGB a valores LAB"
+    },
+    "rgb-to-lch": {
+      "name": "Conversor RGB a LCH",
+      "description": "Convierte códigos de color RGB a valores LCH"
+    },
+    "rgb-to-oklch": {
+      "name": "Conversor RGB a OKLCH",
+      "description": "Convierte códigos de color RGB a valores OKLCH"
+    },
+    "rgba-to-hex": {
+      "name": "Conversor RGBA a HEX",
+      "description": "Convierte códigos de color RGBA a valores HEX"
+    },
+    "rgba-to-rgb": {
+      "name": "Conversor RGBA a RGB",
+      "description": "Convierte códigos de color RGBA a valores RGB"
+    },
+    "rgba-to-hsl": {
+      "name": "Conversor RGBA a HSL",
+      "description": "Convierte códigos de color RGBA a valores HSL"
+    },
+    "rgba-to-hsla": {
+      "name": "Conversor RGBA a HSLA",
+      "description": "Convierte códigos de color RGBA a valores HSLA"
+    },
+    "rgba-to-hsv": {
+      "name": "Conversor RGBA a HSV",
+      "description": "Convierte códigos de color RGBA a valores HSV"
+    },
+    "rgba-to-hsva": {
+      "name": "Conversor RGBA a HSVA",
+      "description": "Convierte códigos de color RGBA a valores HSVA"
+    },
+    "rgba-to-cmyk": {
+      "name": "Conversor RGBA a CMYK",
+      "description": "Convierte códigos de color RGBA a valores CMYK"
+    },
+    "rgba-to-lab": {
+      "name": "Conversor RGBA a LAB",
+      "description": "Convierte códigos de color RGBA a valores LAB"
+    },
+    "rgba-to-lch": {
+      "name": "Conversor RGBA a LCH",
+      "description": "Convierte códigos de color RGBA a valores LCH"
+    },
+    "rgba-to-oklch": {
+      "name": "Conversor RGBA a OKLCH",
+      "description": "Convierte códigos de color RGBA a valores OKLCH"
+    },
+    "hsl-to-hex": {
+      "name": "Conversor HSL a HEX",
+      "description": "Convierte códigos de color HSL a valores HEX"
+    },
+    "hsl-to-rgb": {
+      "name": "Conversor HSL a RGB",
+      "description": "Convierte códigos de color HSL a valores RGB"
+    },
+    "hsl-to-rgba": {
+      "name": "Conversor HSL a RGBA",
+      "description": "Convierte códigos de color HSL a valores RGBA"
+    },
+    "hsl-to-hsla": {
+      "name": "Conversor HSL a HSLA",
+      "description": "Convierte códigos de color HSL a valores HSLA"
+    },
+    "hsl-to-hsv": {
+      "name": "Conversor HSL a HSV",
+      "description": "Convierte códigos de color HSL a valores HSV"
+    },
+    "hsl-to-hsva": {
+      "name": "Conversor HSL a HSVA",
+      "description": "Convierte códigos de color HSL a valores HSVA"
+    },
+    "hsl-to-cmyk": {
+      "name": "Conversor HSL a CMYK",
+      "description": "Convierte códigos de color HSL a valores CMYK"
+    },
+    "hsl-to-lab": {
+      "name": "Conversor HSL a LAB",
+      "description": "Convierte códigos de color HSL a valores LAB"
+    },
+    "hsl-to-lch": {
+      "name": "Conversor HSL a LCH",
+      "description": "Convierte códigos de color HSL a valores LCH"
+    },
+    "hsl-to-oklch": {
+      "name": "Conversor HSL a OKLCH",
+      "description": "Convierte códigos de color HSL a valores OKLCH"
+    },
+    "hsla-to-hex": {
+      "name": "Conversor HSLA a HEX",
+      "description": "Convierte códigos de color HSLA a valores HEX"
+    },
+    "hsla-to-rgb": {
+      "name": "Conversor HSLA a RGB",
+      "description": "Convierte códigos de color HSLA a valores RGB"
+    },
+    "hsla-to-rgba": {
+      "name": "Conversor HSLA a RGBA",
+      "description": "Convierte códigos de color HSLA a valores RGBA"
+    },
+    "hsla-to-hsl": {
+      "name": "Conversor HSLA a HSL",
+      "description": "Convierte códigos de color HSLA a valores HSL"
+    },
+    "hsla-to-hsv": {
+      "name": "Conversor HSLA a HSV",
+      "description": "Convierte códigos de color HSLA a valores HSV"
+    },
+    "hsla-to-hsva": {
+      "name": "Conversor HSLA a HSVA",
+      "description": "Convierte códigos de color HSLA a valores HSVA"
+    },
+    "hsla-to-cmyk": {
+      "name": "Conversor HSLA a CMYK",
+      "description": "Convierte códigos de color HSLA a valores CMYK"
+    },
+    "hsla-to-lab": {
+      "name": "Conversor HSLA a LAB",
+      "description": "Convierte códigos de color HSLA a valores LAB"
+    },
+    "hsla-to-lch": {
+      "name": "Conversor HSLA a LCH",
+      "description": "Convierte códigos de color HSLA a valores LCH"
+    },
+    "hsla-to-oklch": {
+      "name": "Conversor HSLA a OKLCH",
+      "description": "Convierte códigos de color HSLA a valores OKLCH"
+    },
+    "hsv-to-hex": {
+      "name": "Conversor HSV a HEX",
+      "description": "Convierte códigos de color HSV a valores HEX"
+    },
+    "hsv-to-rgb": {
+      "name": "Conversor HSV a RGB",
+      "description": "Convierte códigos de color HSV a valores RGB"
+    },
+    "hsv-to-rgba": {
+      "name": "Conversor HSV a RGBA",
+      "description": "Convierte códigos de color HSV a valores RGBA"
+    },
+    "hsv-to-hsl": {
+      "name": "Conversor HSV a HSL",
+      "description": "Convierte códigos de color HSV a valores HSL"
+    },
+    "hsv-to-hsla": {
+      "name": "Conversor HSV a HSLA",
+      "description": "Convierte códigos de color HSV a valores HSLA"
+    },
+    "hsv-to-hsva": {
+      "name": "Conversor HSV a HSVA",
+      "description": "Convierte códigos de color HSV a valores HSVA"
+    },
+    "hsv-to-cmyk": {
+      "name": "Conversor HSV a CMYK",
+      "description": "Convierte códigos de color HSV a valores CMYK"
+    },
+    "hsv-to-lab": {
+      "name": "Conversor HSV a LAB",
+      "description": "Convierte códigos de color HSV a valores LAB"
+    },
+    "hsv-to-lch": {
+      "name": "Conversor HSV a LCH",
+      "description": "Convierte códigos de color HSV a valores LCH"
+    },
+    "hsv-to-oklch": {
+      "name": "Conversor HSV a OKLCH",
+      "description": "Convierte códigos de color HSV a valores OKLCH"
+    },
+    "hsva-to-hex": {
+      "name": "Conversor HSVA a HEX",
+      "description": "Convierte códigos de color HSVA a valores HEX"
+    },
+    "hsva-to-rgb": {
+      "name": "Conversor HSVA a RGB",
+      "description": "Convierte códigos de color HSVA a valores RGB"
+    },
+    "hsva-to-rgba": {
+      "name": "Conversor HSVA a RGBA",
+      "description": "Convierte códigos de color HSVA a valores RGBA"
+    },
+    "hsva-to-hsl": {
+      "name": "Conversor HSVA a HSL",
+      "description": "Convierte códigos de color HSVA a valores HSL"
+    },
+    "hsva-to-hsla": {
+      "name": "Conversor HSVA a HSLA",
+      "description": "Convierte códigos de color HSVA a valores HSLA"
+    },
+    "hsva-to-hsv": {
+      "name": "Conversor HSVA a HSV",
+      "description": "Convierte códigos de color HSVA a valores HSV"
+    },
+    "hsva-to-cmyk": {
+      "name": "Conversor HSVA a CMYK",
+      "description": "Convierte códigos de color HSVA a valores CMYK"
+    },
+    "hsva-to-lab": {
+      "name": "Conversor HSVA a LAB",
+      "description": "Convierte códigos de color HSVA a valores LAB"
+    },
+    "hsva-to-lch": {
+      "name": "Conversor HSVA a LCH",
+      "description": "Convierte códigos de color HSVA a valores LCH"
+    },
+    "hsva-to-oklch": {
+      "name": "Conversor HSVA a OKLCH",
+      "description": "Convierte códigos de color HSVA a valores OKLCH"
+    },
+    "cmyk-to-hex": {
+      "name": "Conversor CMYK a HEX",
+      "description": "Convierte códigos de color CMYK a valores HEX"
+    },
+    "cmyk-to-rgb": {
+      "name": "Conversor CMYK a RGB",
+      "description": "Convierte códigos de color CMYK a valores RGB"
+    },
+    "cmyk-to-rgba": {
+      "name": "Conversor CMYK a RGBA",
+      "description": "Convierte códigos de color CMYK a valores RGBA"
+    },
+    "cmyk-to-hsl": {
+      "name": "Conversor CMYK a HSL",
+      "description": "Convierte códigos de color CMYK a valores HSL"
+    },
+    "cmyk-to-hsla": {
+      "name": "Conversor CMYK a HSLA",
+      "description": "Convierte códigos de color CMYK a valores HSLA"
+    },
+    "cmyk-to-hsv": {
+      "name": "Conversor CMYK a HSV",
+      "description": "Convierte códigos de color CMYK a valores HSV"
+    },
+    "cmyk-to-hsva": {
+      "name": "Conversor CMYK a HSVA",
+      "description": "Convierte códigos de color CMYK a valores HSVA"
+    },
+    "cmyk-to-lab": {
+      "name": "Conversor CMYK a LAB",
+      "description": "Convierte códigos de color CMYK a valores LAB"
+    },
+    "cmyk-to-lch": {
+      "name": "Conversor CMYK a LCH",
+      "description": "Convierte códigos de color CMYK a valores LCH"
+    },
+    "cmyk-to-oklch": {
+      "name": "Conversor CMYK a OKLCH",
+      "description": "Convierte códigos de color CMYK a valores OKLCH"
+    },
+    "lab-to-hex": {
+      "name": "Conversor LAB a HEX",
+      "description": "Convierte códigos de color LAB a valores HEX"
+    },
+    "lab-to-rgb": {
+      "name": "Conversor LAB a RGB",
+      "description": "Convierte códigos de color LAB a valores RGB"
+    },
+    "lab-to-rgba": {
+      "name": "Conversor LAB a RGBA",
+      "description": "Convierte códigos de color LAB a valores RGBA"
+    },
+    "lab-to-hsl": {
+      "name": "Conversor LAB a HSL",
+      "description": "Convierte códigos de color LAB a valores HSL"
+    },
+    "lab-to-hsla": {
+      "name": "Conversor LAB a HSLA",
+      "description": "Convierte códigos de color LAB a valores HSLA"
+    },
+    "lab-to-hsv": {
+      "name": "Conversor LAB a HSV",
+      "description": "Convierte códigos de color LAB a valores HSV"
+    },
+    "lab-to-hsva": {
+      "name": "Conversor LAB a HSVA",
+      "description": "Convierte códigos de color LAB a valores HSVA"
+    },
+    "lab-to-cmyk": {
+      "name": "Conversor LAB a CMYK",
+      "description": "Convierte códigos de color LAB a valores CMYK"
+    },
+    "lab-to-lch": {
+      "name": "Conversor LAB a LCH",
+      "description": "Convierte códigos de color LAB a valores LCH"
+    },
+    "lab-to-oklch": {
+      "name": "Conversor LAB a OKLCH",
+      "description": "Convierte códigos de color LAB a valores OKLCH"
+    },
+    "lch-to-hex": {
+      "name": "Conversor LCH a HEX",
+      "description": "Convierte códigos de color LCH a valores HEX"
+    },
+    "lch-to-rgb": {
+      "name": "Conversor LCH a RGB",
+      "description": "Convierte códigos de color LCH a valores RGB"
+    },
+    "lch-to-rgba": {
+      "name": "Conversor LCH a RGBA",
+      "description": "Convierte códigos de color LCH a valores RGBA"
+    },
+    "lch-to-hsl": {
+      "name": "Conversor LCH a HSL",
+      "description": "Convierte códigos de color LCH a valores HSL"
+    },
+    "lch-to-hsla": {
+      "name": "Conversor LCH a HSLA",
+      "description": "Convierte códigos de color LCH a valores HSLA"
+    },
+    "lch-to-hsv": {
+      "name": "Conversor LCH a HSV",
+      "description": "Convierte códigos de color LCH a valores HSV"
+    },
+    "lch-to-hsva": {
+      "name": "Conversor LCH a HSVA",
+      "description": "Convierte códigos de color LCH a valores HSVA"
+    },
+    "lch-to-cmyk": {
+      "name": "Conversor LCH a CMYK",
+      "description": "Convierte códigos de color LCH a valores CMYK"
+    },
+    "lch-to-lab": {
+      "name": "Conversor LCH a LAB",
+      "description": "Convierte códigos de color LCH a valores LAB"
+    },
+    "lch-to-oklch": {
+      "name": "Conversor LCH a OKLCH",
+      "description": "Convierte códigos de color LCH a valores OKLCH"
+    },
+    "oklch-to-hex": {
+      "name": "Conversor OKLCH a HEX",
+      "description": "Convierte códigos de color OKLCH a valores HEX"
+    },
+    "oklch-to-rgb": {
+      "name": "Conversor OKLCH a RGB",
+      "description": "Convierte códigos de color OKLCH a valores RGB"
+    },
+    "oklch-to-rgba": {
+      "name": "Conversor OKLCH a RGBA",
+      "description": "Convierte códigos de color OKLCH a valores RGBA"
+    },
+    "oklch-to-hsl": {
+      "name": "Conversor OKLCH a HSL",
+      "description": "Convierte códigos de color OKLCH a valores HSL"
+    },
+    "oklch-to-hsla": {
+      "name": "Conversor OKLCH a HSLA",
+      "description": "Convierte códigos de color OKLCH a valores HSLA"
+    },
+    "oklch-to-hsv": {
+      "name": "Conversor OKLCH a HSV",
+      "description": "Convierte códigos de color OKLCH a valores HSV"
+    },
+    "oklch-to-hsva": {
+      "name": "Conversor OKLCH a HSVA",
+      "description": "Convierte códigos de color OKLCH a valores HSVA"
+    },
+    "oklch-to-cmyk": {
+      "name": "Conversor OKLCH a CMYK",
+      "description": "Convierte códigos de color OKLCH a valores CMYK"
+    },
+    "oklch-to-lab": {
+      "name": "Conversor OKLCH a LAB",
+      "description": "Convierte códigos de color OKLCH a valores LAB"
+    },
+    "oklch-to-lch": {
+      "name": "Conversor OKLCH a LCH",
+      "description": "Convierte códigos de color OKLCH a valores LCH"
+    },
     "placeholder-example": {
       "name": "Ejemplo de Marcador",
       "description": "Esta es una herramienta de marcador para demostrar el estado 'Próximamente'"
@@ -55,5 +495,16 @@
     "modeRolls": "Mostrar lanzamientos individuales",
     "sidesHint": "Entre {min} y {max}",
     "countHint": "Entre {min} y {max}"
+  },
+  "colorConverterTool": {
+    "title": "Conversor de {from} a {to}",
+    "fromLabel": "De",
+    "toLabel": "A",
+    "swap": "Intercambiar Entrada y Salida",
+    "inputLabel": "Introduce el color {format}",
+    "colorPreview": "Vista previa del color",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "invalidInput": "Introduce un valor de color válido para ver la conversión."
   }
 }
