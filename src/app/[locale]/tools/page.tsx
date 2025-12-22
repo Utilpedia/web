@@ -27,10 +27,7 @@ export default async function ToolsPage({ params }: Props) {
 
   return (
     <>
-      <h1
-        className="text-3xl font-bold mb-8"
-        style={{ color: "var(--foreground)" }}
-      >
+      <h1 className="text-3xl font-bold mb-8 text-foreground">
         {t("allTools")}
       </h1>
 
@@ -39,16 +36,12 @@ export default async function ToolsPage({ params }: Props) {
           <ProgressLink
             key={tool.slug}
             href={`/tools/${tool.slug}`}
-            className="block p-4 transition-colors focus-ring"
-            style={{ border: "1px solid var(--border)" }}
+            className="block p-4 transition-colors focus-ring border border-border"
           >
-            <h2
-              className="text-xl font-bold mb-1"
-              style={{ color: "var(--foreground)" }}
-            >
+            <h2 className="text-xl font-bold mb-1 text-foreground">
               {tool.translatedName}
             </h2>
-            <p style={{ color: "var(--foreground-muted)" }}>
+            <p className="text-foreground-muted">
               {tool.translatedDescription}
             </p>
           </ProgressLink>

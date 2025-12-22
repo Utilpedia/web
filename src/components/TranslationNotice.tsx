@@ -26,12 +26,7 @@ export function TranslationNotice({ toolSlug }: TranslationNoticeProps) {
 
   return (
     <div
-      className="mb-4 px-4 py-3 rounded-md text-sm"
-      style={{
-        backgroundColor: "var(--background-muted)",
-        borderLeft: "4px solid var(--primary)",
-        color: "var(--foreground-muted)",
-      }}
+      className="mb-4 px-4 py-3 rounded-md text-sm bg-background-muted text-foreground-muted border-l-4 border-l-primary"
       role="status"
     >
       <p>

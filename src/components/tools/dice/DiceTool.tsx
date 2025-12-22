@@ -93,16 +93,13 @@ export function DiceTool() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
-        {t("title")}
-      </h1>
+      <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
 
       {/* Number of Sides */}
       <div className="space-y-2">
         <label
           htmlFor="sides"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {t("sides")}
         </label>
@@ -117,28 +114,16 @@ export function DiceTool() {
           aria-describedby={
             errors.sides ? "sides-error sides-hint" : "sides-hint"
           }
-          className="w-full px-3 py-2 focus-ring"
-          style={{
-            border: `1px solid var(${errors.sides ? "--input-border-error" : "--input-border"})`,
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className={`w-full px-3 py-2 focus-ring bg-background text-foreground border ${
+            errors.sides ? "border-input-border-error" : "border-input-border"
+          }`}
         />
         {errors.sides && (
-          <p
-            id="sides-error"
-            className="text-sm"
-            style={{ color: "var(--destructive)" }}
-            role="alert"
-          >
+          <p id="sides-error" className="text-sm text-destructive" role="alert">
             {errors.sides}
           </p>
         )}
-        <p
-          id="sides-hint"
-          className="text-xs"
-          style={{ color: "var(--foreground-subtle)" }}
-        >
+        <p id="sides-hint" className="text-xs text-foreground-subtle">
           {t("sidesHint", { min: MIN_SIDES, max: MAX_SIDES })}
         </p>
       </div>
@@ -147,8 +132,7 @@ export function DiceTool() {
       <div className="space-y-2">
         <label
           htmlFor="count"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {t("count")}
         </label>
@@ -163,28 +147,16 @@ export function DiceTool() {
           aria-describedby={
             errors.count ? "count-error count-hint" : "count-hint"
           }
-          className="w-full px-3 py-2 focus-ring"
-          style={{
-            border: `1px solid var(${errors.count ? "--input-border-error" : "--input-border"})`,
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className={`w-full px-3 py-2 focus-ring bg-background text-foreground border ${
+            errors.count ? "border-input-border-error" : "border-input-border"
+          }`}
         />
         {errors.count && (
-          <p
-            id="count-error"
-            className="text-sm"
-            style={{ color: "var(--destructive)" }}
-            role="alert"
-          >
+          <p id="count-error" className="text-sm text-destructive" role="alert">
             {errors.count}
           </p>
         )}
-        <p
-          id="count-hint"
-          className="text-xs"
-          style={{ color: "var(--foreground-subtle)" }}
-        >
+        <p id="count-hint" className="text-xs text-foreground-subtle">
           {t("countHint", { min: MIN_COUNT, max: MAX_COUNT })}
         </p>
       </div>
@@ -193,21 +165,14 @@ export function DiceTool() {
       <div className="space-y-2">
         <label
           htmlFor="result"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {mode === "rolls" ? t("rolls") : t("total")}
         </label>
         <output
           id="result"
           aria-live="polite"
-          className="block w-full px-3 py-2"
-          style={{
-            border: "1px solid var(--input-border)",
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-            minHeight: "42px",
-          }}
+          className="block w-full px-3 py-2 min-h-[42px] border border-input-border bg-background text-foreground"
         >
           {result === null
             ? ""
@@ -226,9 +191,7 @@ export function DiceTool() {
             onChange={(e) => setMode(e.target.checked ? "rolls" : "total")}
             className="w-4 h-4 focus-ring"
           />
-          <span style={{ color: "var(--foreground-muted)" }}>
-            {t("modeRolls")}
-          </span>
+          <span className="text-foreground-muted">{t("modeRolls")}</span>
         </label>
       </div>
 
@@ -236,14 +199,11 @@ export function DiceTool() {
       <button
         onClick={handleRoll}
         disabled={hasErrors}
-        className="px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring"
-        style={{
-          backgroundColor: hasErrors ? "var(--border)" : "var(--primary)",
-          color: hasErrors
-            ? "var(--foreground-muted)"
-            : "var(--primary-foreground)",
-          cursor: hasErrors ? "not-allowed" : "pointer",
-        }}
+        className={`px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring ${
+          hasErrors
+            ? "bg-border text-foreground-muted cursor-not-allowed"
+            : "bg-primary text-primary-foreground cursor-pointer"
+        }`}
       >
         {t("roll")}
       </button>

@@ -6,45 +6,18 @@ import { simpleInterest } from "@utilpedia/math/core";
 import * as v from "valibot";
 import dynamic from "next/dynamic";
 
-// Lazy load Recharts components with loading skeleton
-const chartLoadingFallback = {
-  loading: () => (
-    <div
-      className="h-[300px] animate-pulse rounded"
-      style={{ backgroundColor: "var(--background-muted)" }}
-    />
-  ),
-};
-
-const BarChart = dynamic(() => import("recharts").then((mod) => mod.BarChart), {
-  ssr: false,
-  ...chartLoadingFallback,
-});
-const Bar = dynamic(() => import("recharts").then((mod) => mod.Bar), {
-  ssr: false,
-});
-const XAxis = dynamic(() => import("recharts").then((mod) => mod.XAxis), {
-  ssr: false,
-});
-const YAxis = dynamic(() => import("recharts").then((mod) => mod.YAxis), {
-  ssr: false,
-});
-const Tooltip = dynamic(() => import("recharts").then((mod) => mod.Tooltip), {
-  ssr: false,
-});
-const ResponsiveContainer = dynamic(
-  () => import("recharts").then((mod) => mod.ResponsiveContainer),
-  { ssr: false }
+// Lazy load the entire chart component as one unit
+const InterestChart = dynamic(
+  () => import("./InterestChart").then((mod) => mod.InterestChart),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[300px] rounded flex items-center justify-center bg-background-muted">
+        <div className="w-8 h-8 border-4 rounded-full animate-spin border-border border-t-primary" />
+      </div>
+    ),
+  }
 );
-const Legend = dynamic(() => import("recharts").then((mod) => mod.Legend), {
-  ssr: false,
-});
-
-// Chart colors
-const CHART_COLORS = {
-  principal: "#1e40af", // Dark blue
-  interest: "#60a5fa", // Light blue
-};
 
 interface ChartData {
   period: number;
@@ -119,15 +92,15 @@ export function SimpleInterestTool() {
   const [result, setResult] = useState<{
     finalBalance: number;
     totalInterest: number;
-    monthlyChartData: ChartData[] | null; // Null if timeUnit is years
+    monthlyChartData: ChartData[] | null;
     yearlyChartData: ChartData[];
-    canToggleView: boolean; // True when monthly data is available
+    canToggleView: boolean;
   } | null>(null);
   const [showMonthlyChart, setShowMonthlyChart] = useState(false);
 
   const handlePrincipalChange = (value: string) => {
     setPrincipal(value);
-    setResult(null); // Clear stale results
+    setResult(null);
     const res = validate(principalSchema, value);
     setErrors((prev) => ({
       ...prev,
@@ -191,12 +164,9 @@ export function SimpleInterestTool() {
     }
 
     const p = principalResult.data;
-    const ratePercent = rateResult.data / 100; // Convert percentage to decimal
+    const ratePercent = rateResult.data / 100;
     const periodValue = periodResult.data;
 
-    // Calculate rate per period based on user's selection
-    // If user entered annual rate but viewing months, convert to monthly rate
-    // If user entered monthly rate but viewing years, convert to annual rate
     let ratePerPeriod: number;
     if (ratePeriod === "annual" && timeUnit === "months") {
       ratePerPeriod = ratePercent / 12;
@@ -206,19 +176,16 @@ export function SimpleInterestTool() {
       ratePerPeriod = ratePercent;
     }
 
-    // Calculate exact totals for the user's entered periods (single source of truth)
     const {
       interest: totalInterest,
       finalBalance,
       schedule,
     } = simpleInterest(p, ratePerPeriod, periodValue);
 
-    // Generate chart data
     let monthlyChartData: ChartData[] | null = null;
     let yearlyChartData: ChartData[];
 
     if (timeUnit === "months") {
-      // Store monthly data for toggle
       monthlyChartData = schedule
         .filter((entry) => entry.period > 0)
         .map((entry) => ({
@@ -227,7 +194,6 @@ export function SimpleInterestTool() {
           interest: entry.interestToDate,
         }));
 
-      // Generate yearly aggregated data
       const yearlyRate = ratePerPeriod * 12;
       const totalYears = Math.ceil(periodValue / 12);
       const { schedule: yearlySchedule } = simpleInterest(
@@ -243,7 +209,6 @@ export function SimpleInterestTool() {
           interest: entry.interestToDate,
         }));
     } else {
-      // Years mode - only yearly data
       yearlyChartData = schedule
         .filter((entry) => entry.period > 0)
         .map((entry) => ({
@@ -253,7 +218,6 @@ export function SimpleInterestTool() {
         }));
     }
 
-    // Reset to yearly view when calculating (default for performance)
     setShowMonthlyChart(false);
 
     setResult({
@@ -267,18 +231,21 @@ export function SimpleInterestTool() {
 
   const hasErrors = Boolean(errors.principal || errors.rate || errors.period);
 
+  const chartData =
+    showMonthlyChart && result?.monthlyChartData
+      ? result.monthlyChartData
+      : result?.yearlyChartData;
+  const isShowingMonths = showMonthlyChart && result?.monthlyChartData;
+
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
-        {t("title")}
-      </h1>
+      <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
 
       {/* Starting Amount */}
       <div className="space-y-2">
         <label
           htmlFor="principal"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {t("principal")}
         </label>
@@ -291,18 +258,16 @@ export function SimpleInterestTool() {
           onChange={(e) => handlePrincipalChange(e.target.value)}
           aria-invalid={errors.principal ? "true" : "false"}
           aria-describedby={errors.principal ? "principal-error" : undefined}
-          className="w-full px-3 py-2 focus-ring"
-          style={{
-            border: `1px solid var(${errors.principal ? "--input-border-error" : "--input-border"})`,
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className={`w-full px-3 py-2 focus-ring bg-background text-foreground border ${
+            errors.principal
+              ? "border-input-border-error"
+              : "border-input-border"
+          }`}
         />
         {errors.principal && (
           <p
             id="principal-error"
-            className="text-sm"
-            style={{ color: "var(--destructive)" }}
+            className="text-sm text-destructive"
             role="alert"
           >
             {errors.principal}
@@ -314,8 +279,7 @@ export function SimpleInterestTool() {
       <div className="space-y-2">
         <label
           htmlFor="rate"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {ratePeriod === "annual" ? t("rateAnnual") : t("rateMonthly")}
         </label>
@@ -329,34 +293,21 @@ export function SimpleInterestTool() {
           onChange={(e) => handleRateChange(e.target.value)}
           aria-invalid={errors.rate ? "true" : "false"}
           aria-describedby={errors.rate ? "rate-error" : undefined}
-          className="w-full px-3 py-2 focus-ring"
-          style={{
-            border: `1px solid var(${errors.rate ? "--input-border-error" : "--input-border"})`,
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className={`w-full px-3 py-2 focus-ring bg-background text-foreground border ${
+            errors.rate ? "border-input-border-error" : "border-input-border"
+          }`}
         />
         <select
           value={ratePeriod}
           onChange={(e) => handleRatePeriodChange(e.target.value as RatePeriod)}
           aria-label={t("ratePeriodLabel")}
-          className="w-full px-3 py-2 focus-ring mt-2"
-          style={{
-            border: "1px solid var(--input-border)",
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className="w-full px-3 py-2 focus-ring mt-2 border border-input-border bg-background text-foreground"
         >
           <option value="annual">{t("perYear")}</option>
           <option value="monthly">{t("perMonth")}</option>
         </select>
         {errors.rate && (
-          <p
-            id="rate-error"
-            className="text-sm"
-            style={{ color: "var(--destructive)" }}
-            role="alert"
-          >
+          <p id="rate-error" className="text-sm text-destructive" role="alert">
             {errors.rate}
           </p>
         )}
@@ -366,8 +317,7 @@ export function SimpleInterestTool() {
       <div className="space-y-2">
         <label
           htmlFor="period"
-          className="block text-lg font-bold"
-          style={{ color: "var(--foreground)" }}
+          className="block text-lg font-bold text-foreground"
         >
           {t("timePeriod")}
         </label>
@@ -380,23 +330,15 @@ export function SimpleInterestTool() {
           onChange={(e) => handlePeriodChange(e.target.value)}
           aria-invalid={errors.period ? "true" : "false"}
           aria-describedby={errors.period ? "period-error" : undefined}
-          className="w-full px-3 py-2 focus-ring"
-          style={{
-            border: `1px solid var(${errors.period ? "--input-border-error" : "--input-border"})`,
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className={`w-full px-3 py-2 focus-ring bg-background text-foreground border ${
+            errors.period ? "border-input-border-error" : "border-input-border"
+          }`}
         />
         <select
           value={timeUnit}
           onChange={(e) => handleTimeUnitChange(e.target.value as TimeUnit)}
           aria-label={t("timeUnitLabel")}
-          className="w-full px-3 py-2 focus-ring mt-2"
-          style={{
-            border: "1px solid var(--input-border)",
-            backgroundColor: "var(--background)",
-            color: "var(--foreground)",
-          }}
+          className="w-full px-3 py-2 focus-ring mt-2 border border-input-border bg-background text-foreground"
         >
           <option value="years">{t("years")}</option>
           <option value="months">{t("months")}</option>
@@ -404,8 +346,7 @@ export function SimpleInterestTool() {
         {errors.period && (
           <p
             id="period-error"
-            className="text-sm"
-            style={{ color: "var(--destructive)" }}
+            className="text-sm text-destructive"
             role="alert"
           >
             {errors.period}
@@ -417,14 +358,11 @@ export function SimpleInterestTool() {
       <button
         onClick={handleCalculate}
         disabled={hasErrors}
-        className="px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring"
-        style={{
-          backgroundColor: hasErrors ? "var(--border)" : "var(--primary)",
-          color: hasErrors
-            ? "var(--foreground-muted)"
-            : "var(--primary-foreground)",
-          cursor: hasErrors ? "not-allowed" : "pointer",
-        }}
+        className={`px-8 py-3 font-medium tracking-wide uppercase transition-colors focus-ring ${
+          hasErrors
+            ? "bg-border text-foreground-muted cursor-not-allowed"
+            : "bg-primary text-primary-foreground cursor-pointer"
+        }`}
       >
         {t("calculate")}
       </button>
@@ -433,123 +371,47 @@ export function SimpleInterestTool() {
       {result && (
         <div className="space-y-6">
           {/* Summary */}
-          <div
-            className="p-4 rounded-lg space-y-2"
-            style={{ backgroundColor: "var(--background-muted)" }}
-          >
+          <div className="p-4 rounded-lg space-y-2 bg-background-muted">
             <div className="flex justify-between">
-              <span style={{ color: "var(--foreground-muted)" }}>
+              <span className="text-foreground-muted">
                 {t("totalInterest")}
               </span>
-              <span
-                className="font-bold"
-                style={{ color: "var(--foreground)" }}
-              >
+              <span className="font-bold text-foreground">
                 {formatCurrency(result.totalInterest)}
               </span>
             </div>
             <div className="flex justify-between">
-              <span style={{ color: "var(--foreground-muted)" }}>
-                {t("finalBalance")}
-              </span>
-              <span
-                className="font-bold text-lg"
-                style={{ color: "var(--primary)" }}
-              >
+              <span className="text-foreground-muted">{t("finalBalance")}</span>
+              <span className="font-bold text-lg text-primary">
                 {formatCurrency(result.finalBalance)}
               </span>
             </div>
           </div>
 
           {/* Chart */}
-          <div
-            className="p-4 rounded-lg"
-            style={{ backgroundColor: "var(--background-muted)" }}
-          >
-            <h2
-              className="text-lg font-bold mb-4"
-              style={{ color: "var(--foreground)" }}
-            >
+          <div className="p-4 rounded-lg bg-background-muted">
+            <h2 className="text-lg font-bold mb-4 text-foreground">
               {t("growthOverTime")}
             </h2>
-            <div style={{ width: "100%", height: 300 }}>
-              <ResponsiveContainer>
-                <BarChart
-                  data={
-                    showMonthlyChart && result.monthlyChartData
-                      ? result.monthlyChartData
-                      : result.yearlyChartData
-                  }
-                >
-                  <XAxis
-                    dataKey="period"
-                    stroke="var(--foreground-muted)"
-                    tick={{ fill: "var(--foreground-muted)" }}
-                    label={{
-                      value:
-                        showMonthlyChart && result.monthlyChartData
-                          ? t("months")
-                          : t("years"),
-                      position: "insideBottom",
-                      offset: -5,
-                      fill: "var(--foreground-muted)",
-                    }}
-                  />
-                  <YAxis
-                    stroke="var(--foreground-muted)"
-                    tick={{ fill: "var(--foreground-muted)" }}
-                    tickFormatter={(value) =>
-                      value >= 1000
-                        ? `$${(value / 1000).toFixed(0)}k`
-                        : `$${value.toFixed(0)}`
-                    }
-                  />
-                  <Tooltip
-                    formatter={(value) =>
-                      typeof value === "number" ? formatCurrency(value) : value
-                    }
-                    labelFormatter={(label) =>
-                      showMonthlyChart && result.monthlyChartData
-                        ? `Month ${label}`
-                        : `Year ${label}`
-                    }
-                    contentStyle={{
-                      backgroundColor: "var(--background)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "4px",
-                    }}
-                  />
-                  <Legend />
-                  <Bar
-                    dataKey="principal"
-                    stackId="total"
-                    fill={CHART_COLORS.principal}
-                    name={t("principalLabel")}
-                  />
-                  <Bar
-                    dataKey="interest"
-                    stackId="total"
-                    fill={CHART_COLORS.interest}
-                    name={t("interestLabel")}
-                  />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+
+            {chartData && (
+              <InterestChart
+                data={chartData}
+                xAxisLabel={isShowingMonths ? t("months") : t("years")}
+                tooltipLabelPrefix={isShowingMonths ? "Month" : "Year"}
+                principalLabel={t("principalLabel")}
+                interestLabel={t("interestLabel")}
+              />
+            )}
 
             {/* Toggle for monthly/yearly view */}
             {result.canToggleView && (
-              <label
-                className="flex items-center gap-2 mt-4 cursor-pointer"
-                style={{ color: "var(--foreground-muted)" }}
-              >
+              <label className="flex items-center gap-2 mt-4 cursor-pointer text-foreground-muted">
                 <input
                   type="checkbox"
                   checked={showMonthlyChart}
                   onChange={(e) => setShowMonthlyChart(e.target.checked)}
-                  className="w-4 h-4 rounded focus-ring"
-                  style={{
-                    accentColor: "var(--primary)",
-                  }}
+                  className="w-4 h-4 rounded focus-ring accent-primary"
                 />
                 <span className="text-sm">{t("showMonthlyBreakdown")}</span>
               </label>

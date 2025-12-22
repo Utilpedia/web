@@ -34,18 +34,11 @@ export function Sidebar() {
 
   return (
     <aside
-      className="w-52 shrink-0 overflow-y-auto"
-      style={{
-        border: "1px solid var(--border)",
-        maxHeight: "calc(100vh - 200px)",
-      }}
+      className="w-52 shrink-0 overflow-y-auto border border-border max-h-[calc(100vh-200px)]"
       aria-label="Tools navigation"
     >
       <nav className="p-2">
-        <h2
-          className="px-2 py-1 text-xs font-semibold uppercase tracking-wider"
-          style={{ color: "var(--foreground-subtle)" }}
-        >
+        <h2 className="px-2 py-1 text-xs font-semibold uppercase tracking-wider text-foreground-subtle">
           {tCommon("tools")} ({tools.length})
         </h2>
         <ul className="mt-1 space-y-0.5">
@@ -58,15 +51,11 @@ export function Sidebar() {
               <li key={tool.slug}>
                 <ProgressLink
                   href={getToolHref(tool.slug)}
-                  className="block px-2 py-1.5 text-sm rounded focus-ring transition-colors"
-                  style={{
-                    backgroundColor: isActive
-                      ? "var(--background-muted)"
-                      : "transparent",
-                    color: isActive
-                      ? "var(--foreground)"
-                      : "var(--foreground-muted)",
-                  }}
+                  className={`block px-2 py-1.5 text-sm rounded focus-ring transition-colors ${
+                    isActive
+                      ? "bg-background-muted text-foreground"
+                      : "text-foreground-muted"
+                  }`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {getToolName(tool.slug, tool.name)}
@@ -79,8 +68,7 @@ export function Sidebar() {
         {tools.length > MAX_TOOLS && (
           <ProgressLink
             href={locale === defaultLocale ? "/tools" : `/${locale}/tools`}
-            className="block px-2 py-1.5 mt-2 text-sm focus-ring"
-            style={{ color: "var(--primary)" }}
+            className="block px-2 py-1.5 mt-2 text-sm focus-ring text-primary"
           >
             {tCommon("allTools")} →
           </ProgressLink>

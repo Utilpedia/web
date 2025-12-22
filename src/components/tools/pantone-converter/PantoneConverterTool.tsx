@@ -36,7 +36,7 @@ export function PantoneConverterTool() {
   const searchResults = useMemo(() => {
     if (debouncedQuery.length < 2) return [];
     try {
-      return searchPantone(debouncedQuery).slice(0, 20); // Limit to 20 results
+      return searchPantone(debouncedQuery).slice(0, 20);
     } catch {
       return [];
     }
@@ -110,15 +110,13 @@ export function PantoneConverterTool() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold" style={{ color: "var(--foreground)" }}>
-        {t("title")}
-      </h1>
+      <h1 className="text-3xl font-bold text-foreground">{t("title")}</h1>
+
       {/* Search Input */}
       <div className="space-y-2">
         <label
           htmlFor="pantone-search"
-          className="block text-sm font-medium"
-          style={{ color: "var(--foreground-muted)" }}
+          className="block text-sm font-medium text-foreground-muted"
         >
           {t("searchLabel")}
         </label>
@@ -129,19 +127,14 @@ export function PantoneConverterTool() {
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
-              setFocusedIndex(-1); // Reset focus when typing
+              setFocusedIndex(-1);
               if (selectedColor && e.target.value !== selectedColor.name) {
                 setSelectedColor(null);
               }
             }}
             onKeyDown={handleKeyDown}
             placeholder={t("searchPlaceholder")}
-            className="w-full px-4 py-3 rounded-lg focus-ring"
-            style={{
-              backgroundColor: "var(--background-muted)",
-              border: "1px solid var(--border)",
-              color: "var(--foreground)",
-            }}
+            className="w-full px-4 py-3 rounded-lg focus-ring bg-background-muted border border-border text-foreground"
             role="combobox"
             aria-expanded={searchResults.length > 0 && !selectedColor}
             aria-controls="pantone-results"
@@ -153,8 +146,7 @@ export function PantoneConverterTool() {
           {query && (
             <button
               onClick={handleClear}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded"
-              style={{ color: "var(--foreground-muted)" }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded text-foreground-muted"
               aria-label="Clear search"
             >
               ✕
@@ -169,11 +161,7 @@ export function PantoneConverterTool() {
           ref={resultsRef}
           id="pantone-results"
           role="listbox"
-          className="rounded-lg overflow-hidden max-h-80 overflow-y-auto"
-          style={{
-            backgroundColor: "var(--background-muted)",
-            border: "1px solid var(--border)",
-          }}
+          className="rounded-lg overflow-hidden max-h-80 overflow-y-auto bg-background-muted border border-border"
         >
           {searchResults.map((entry, index) => (
             <button
@@ -183,36 +171,21 @@ export function PantoneConverterTool() {
               aria-selected={focusedIndex === index}
               onClick={() => handleSelectColor(entry)}
               onMouseEnter={() => setFocusedIndex(index)}
-              className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors"
-              style={{
-                backgroundColor:
-                  focusedIndex === index ? "var(--background)" : "transparent",
-                borderBottom:
-                  index < searchResults.length - 1
-                    ? "1px solid var(--border)"
-                    : "none",
-              }}
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+                focusedIndex === index ? "bg-background" : ""
+              } ${index < searchResults.length - 1 ? "border-b border-border" : ""}`}
             >
-              {/* Color Swatch */}
+              {/* Color Swatch - needs inline style for dynamic color */}
               <div
-                className="w-8 h-8 rounded flex-shrink-0"
-                style={{
-                  backgroundColor: entry.hex,
-                  border: "1px solid var(--border)",
-                }}
+                className="w-8 h-8 rounded flex-shrink-0 border border-border"
+                style={{ backgroundColor: entry.hex }}
               />
               {/* Color Info */}
               <div className="flex-1 min-w-0">
-                <div
-                  className="font-medium truncate"
-                  style={{ color: "var(--foreground)" }}
-                >
+                <div className="font-medium truncate text-foreground">
                   {entry.name}
                 </div>
-                <div
-                  className="text-sm truncate"
-                  style={{ color: "var(--foreground-muted)" }}
-                >
+                <div className="text-sm truncate text-foreground-muted">
                   {entry.code}
                 </div>
               </div>
@@ -223,10 +196,7 @@ export function PantoneConverterTool() {
 
       {/* No Results */}
       {query.length >= 2 && searchResults.length === 0 && !selectedColor && (
-        <div
-          className="text-center py-8"
-          style={{ color: "var(--foreground-muted)" }}
-        >
+        <div className="text-center py-8 text-foreground-muted">
           {t("noResults")}
         </div>
       )}
@@ -235,34 +205,22 @@ export function PantoneConverterTool() {
       {selectedColor && conversions && (
         <div className="space-y-6">
           {/* Color Preview */}
-          <div
-            className="p-6 rounded-lg flex items-center gap-6"
-            style={{ backgroundColor: "var(--background-muted)" }}
-          >
+          <div className="p-6 rounded-lg flex items-center gap-6 bg-background-muted">
+            {/* Large swatch needs inline style for dynamic color */}
             <div
-              className="w-24 h-24 rounded-lg flex-shrink-0"
-              style={{
-                backgroundColor: conversions.hex,
-                border: "2px solid var(--border)",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-              }}
+              className="w-24 h-24 rounded-lg flex-shrink-0 border-2 border-border shadow-lg"
+              style={{ backgroundColor: conversions.hex }}
             />
             <div>
-              <h2
-                className="text-2xl font-bold"
-                style={{ color: "var(--foreground)" }}
-              >
+              <h2 className="text-2xl font-bold text-foreground">
                 {selectedColor.name}
               </h2>
-              <p style={{ color: "var(--foreground-muted)" }}>
-                {selectedColor.code}
-              </p>
+              <p className="text-foreground-muted">{selectedColor.code}</p>
             </div>
           </div>
 
           {/* Color Values */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* HEX */}
             <ColorValueCard
               label="HEX"
               value={conversions.hex.toUpperCase()}
@@ -271,7 +229,6 @@ export function PantoneConverterTool() {
               copiedLabel={t("copied")}
             />
 
-            {/* RGB */}
             <ColorValueCard
               label="RGB"
               value={`rgb(${conversions.rgb[0]}, ${conversions.rgb[1]}, ${conversions.rgb[2]})`}
@@ -280,7 +237,6 @@ export function PantoneConverterTool() {
               copiedLabel={t("copied")}
             />
 
-            {/* CMYK */}
             <ColorValueCard
               label="CMYK"
               value={`C:${conversions.cmyk[0]}% M:${conversions.cmyk[1]}% Y:${conversions.cmyk[2]}% K:${conversions.cmyk[3]}%`}
@@ -289,7 +245,6 @@ export function PantoneConverterTool() {
               copiedLabel={t("copied")}
             />
 
-            {/* HSL */}
             <ColorValueCard
               label="HSL"
               value={`hsl(${Math.round(conversions.hsl[0])}°, ${Math.round(conversions.hsl[1])}%, ${Math.round(conversions.hsl[2])}%)`}
@@ -321,7 +276,6 @@ function ColorValueCard({
 }: ColorValueCardProps) {
   const [copied, setCopied] = useState(false);
 
-  // Clean up timeout on unmount
   useEffect(() => {
     if (!copied) return;
     const timer = setTimeout(() => setCopied(false), 2000);
@@ -338,30 +292,19 @@ function ColorValueCard({
   };
 
   return (
-    <div
-      className="p-4 rounded-lg"
-      style={{ backgroundColor: "var(--background-muted)" }}
-    >
-      <div
-        className="text-sm font-medium mb-1"
-        style={{ color: "var(--foreground-muted)" }}
-      >
+    <div className="p-4 rounded-lg bg-background-muted">
+      <div className="text-sm font-medium mb-1 text-foreground-muted">
         {label}
       </div>
       <div className="flex items-center justify-between gap-2">
-        <code
-          className="text-lg font-mono"
-          style={{ color: "var(--foreground)" }}
-        >
-          {value}
-        </code>
+        <code className="text-lg font-mono text-foreground">{value}</code>
         <button
           onClick={handleCopy}
-          className="px-3 py-1 text-sm rounded transition-colors"
-          style={{
-            backgroundColor: copied ? "var(--primary)" : "var(--border)",
-            color: copied ? "var(--primary-foreground)" : "var(--foreground)",
-          }}
+          className={`px-3 py-1 text-sm rounded transition-colors ${
+            copied
+              ? "bg-primary text-primary-foreground"
+              : "bg-border text-foreground"
+          }`}
         >
           {copied ? copiedLabel : copyLabel}
         </button>
